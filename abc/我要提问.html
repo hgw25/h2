@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta content="telephone=no" name="format-detection">
+  <title>我要提问</title>
+  <script>
+    (function (win) {
+      var remCalc = {};
+      var docEl = win.document.documentElement,
+        tid,
+        hasRem = true,
+        hasZoom = true,
+        zoomRuler = 'width',
+        designWidth = 750,
+        designHeight = 1206;
+
+      function refresh() {
+        var width = docEl.clientWidth;
+        var height = docEl.clientHeight;
+        if (width > 768) width = 768;
+        if (hasRem) {
+          var rem = width / 10;
+          docEl.style.fontSize = rem + "px";
+          remCalc.rem = rem;
+          var actualSize = parseFloat(window.getComputedStyle(document.documentElement)["font-size"]);
+          if (actualSize !== rem && actualSize > 0 && Math.abs(actualSize - rem) > 1) {
+            var remScaled = rem * rem / actualSize;
+            docEl.style.fontSize = remScaled + "px";
+          }
+        }
+        if (hasZoom) {
+          var style = document.getElementById('J__style');
+          if (!style) {
+            style = document.createElement('style');
+            style.id = 'J__style';
+          }
+          var r, s;
+          if (zoomRuler === 'height') {
+            r = height / designHeight;
+          } else {
+            r = width / designWidth;
+          }
+          r.toFixed && (r = r.toFixed(5));
+          s = '.__z{zoom:' + r + '} ';
+          s += '.__s{-webkit-transform: scale(' + r + ');transform: scale(' + r + ')}';
+
+          style.innerHTML = s;
+          document.getElementsByTagName('head')[0].appendChild(style);
+        }
+      }
+
+      function dbcRefresh() {
+        clearTimeout(tid);
+        tid = setTimeout(refresh, 100)
+      }
+
+      win.addEventListener("resize", function () {
+        dbcRefresh()
+      }, false);
+
+      win.addEventListener("pageshow", function (e) {
+        if (e.persisted) {
+          dbcRefresh();
+        }
+      }, false);
+      refresh();
+      if (hasRem) {
+        remCalc.refresh = refresh;
+        remCalc.rem2px = function (d) {
+          var val = parseFloat(d) * this.rem;
+          if (typeof d === "string" && d.match(/rem$/)) {
+            val += "px";
+          }
+          return val;
+        };
+        remCalc.px2rem = function (d) {
+          var val = parseFloat(d) / this.rem;
+          if (typeof d === "string" && d.match(/px$/)) {
+            val += "rem";
+          }
+          return val;
+        };
+        win.remCalc = remCalc;
+      }
+    })(window);
+  </script>
+  <link rel="stylesheet" href="./common.css">
+  <style>
+    .top-tips {
+      color: #FF6600;
+      font-size: 0.293rem;
+      padding: 0.267rem 0.453rem;
+      border-bottom: 1px solid #DDDDDD;
+      background-color: #FFFBF3;
+    }
+
+    .form-wrap {
+      /*background-color: #fff;*/
+    }
+
+    .form-wrap input, .form-wrap textarea {
+      width: 100%;
+      border: 0;
+      font-size: 0.267rem;
+    }
+
+    .form-wrap textarea {
+      height: 1.973rem;
+      resize: none;
+    }
+
+    .form-wrap input::-webkit-input-placeholder,
+    .form-wrap textarea::-webkit-input-placeholder {
+      color: #C5C5C5;
+    }
+
+    .form-wrap .form-item {
+      padding: 0.267rem 0.4rem;
+      border-bottom: 1px solid #DDDDDD;
+      display: flex;
+      background-color: #fff;
+    }
+
+    .form-wrap .form-item .item-label {
+      color: #2A2A2A;
+      padding-right: 0.2rem;
+      font-size: 0.32rem;
+    }
+
+    .form-wrap .form-item .item-label i {
+      color: #FF0000;
+      margin-right: 0.107rem;
+      font-style: normal;
+    }
+
+    .form-wrap .form-item .item-content {
+      flex: 1;
+    }
+
+    .form-wrap .form-footer {
+      text-align: center;
+      padding: 0.627rem 0 3.453rem;
+    }
+
+    .form-wrap .form-footer img {
+      width: 3.853rem;
+    }
+
+    .radio-group {
+      margin-left: 0.627rem;
+      display: flex;
+    }
+
+    .radio-group .radio-wrap {
+      margin-right: 1.067rem;
+    }
+
+    .radio-group .radio-wrap:last-child {
+      margin-right: 0;
+    }
+
+    .radio-wrap {
+      align-items: center;
+      display: flex;
+    }
+
+    .radio-wrap .radio-icon {
+      height: 0.373rem;
+      width: 0.373rem;
+      background: url("./assets/icon_radio.png") center center/contain no-repeat;
+      display: inline-block;
+    }
+
+    .radio-wrap + .active .radio-icon {
+      background: url("./assets/icon_radio_active.png") center center/contain no-repeat;
+    }
+
+    .radio-wrap .radio-label {
+      color: #333;
+      margin-left: 0.2rem;
+    }
+
+    .form-age-content {
+      margin-left: 0.627rem;
+    }
+
+    .form-code-content {
+      display: flex;
+    }
+
+    .form-code-content input {
+      width: auto;
+      flex: 1;
+    }
+
+    .form-code-content .code-wrap {
+      margin: -0.267rem 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .form-code-content .code-wrap img {
+      height: 0.973rem;
+    }
+
+    .form-code-content .code-wrap span {
+      color: #07B3F8;
+      font-size: 0.32rem;
+      margin-left: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+  <div class="page-header bottom-line">
+    <div class="header-topbar-wrap">
+      <a class="go-back-link" href="javascript:history.back(-1)"><i class="icon-go-back"></i></a>
+      <div class="page-title">我要提问</div>
+      <div class="menu-nav">
+        <i class="icon-menu-nav"></i>
+      </div>
+      <div class="comp-entry-modal">
+        <div class="comp-shortcut-entry">
+          <ul class="entry-list">
+            <li>
+              <img src="./assets/icon_index_1.png">
+              <p>首页</p>
+            </li>
+            <li>
+              <img src="./assets/icon_doc_2.png">
+              <p>科普文章</p>
+            </li>
+            <li>
+              <img src="./assets/icon_ask_1.png">
+              <p>专家问答</p>
+            </li>
+            <li>
+              <img src="./assets/icon_baike.png">
+              <p>疾病百科</p>
+            </li>
+            <li>
+              <img src="./assets/icon_msg.png">
+              <p>我要提问</p>
+            </li>
+            <li>
+              <img src="./assets/icon_register_1.png">
+              <p>医生注册</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="top-tips">
+    请尽量详细描述患者的病情，有利于医生准确判断及给出更明确的答复
+  </div>
+  <div class="form-wrap">
+    <div class="form-item">
+      <div class="item-label"><i>*</i>问题标题</div>
+      <div class="item-content">
+        <input type="text" placeholder="请用一句话描述病情（5-25个字）">
+      </div>
+    </div>
+    <div class="form-item">
+      <div class="item-label"><i>*</i>病情描述</div>
+      <div class="item-content">
+        <textarea placeholder="请填写所患疾病，是否医院就诊、就诊时间、检查状况、目前症状、想得到怎样的帮助等（20-500个字）"></textarea>
+      </div>
+    </div>
+    <div class="form-item">
+      <div class="item-label"><i>*</i>性别</div>
+      <div class="item-content">
+        <div class="radio-group">
+          <div class="radio-wrap">
+            <i class="radio-icon"></i>
+            <span class="radio-label">男</span>
+          </div>
+          <div class="radio-wrap active">
+            <i class="radio-icon"></i>
+            <span class="radio-label">女</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-item">
+      <div class="item-label"><i>*</i>年龄</div>
+      <div class="item-content form-age-content">
+        <input type="text" placeholder="填写年龄">
+      </div>
+    </div>
+    <div class="form-item">
+      <div class="item-label"><i>*</i>图形验证码</div>
+      <div class="item-content form-code-content">
+        <input type="text" placeholder="填写验证码">
+        <div class="code-wrap">
+          <img src="./assets/icon_code_1.png">
+          <span>换一张</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-footer">
+      <a href="./提问成功.html">
+        <img src="./assets/icon_submit_btn_1.png">
+      </a>
+    </div>
+  </div>
+  <div class="page-footer">
+    <div class="friendship-link">网站简介 | 友情链接 | 联系我们 | 招聘 | 免责声明</div>
+    <div class="copyright">
+      <p>特别声明：本站内容仅供参考，不作为诊断及医疗依据,请谨慎参阅，
+        本站不承担由此引起的相关责任</p>
+      <p>Copyright © 2013-2018 版权所有 未经授权请勿转载 </p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta content="telephone=no" name="format-detection">
+  <title>问答详情</title>
+  <script>
+    (function (win) {
+      var remCalc = {};
+      var docEl = win.document.documentElement,
+        tid,
+        hasRem = true,
+        hasZoom = true,
+        zoomRuler = 'width',
+        designWidth = 750,
+        designHeight = 1206;
+
+      function refresh() {
+        var width = docEl.clientWidth;
+        var height = docEl.clientHeight;
+        if (width > 768) width = 768;
+        if (hasRem) {
+          var rem = width / 10;
+          docEl.style.fontSize = rem + "px";
+          remCalc.rem = rem;
+          var actualSize = parseFloat(window.getComputedStyle(document.documentElement)["font-size"]);
+          if (actualSize !== rem && actualSize > 0 && Math.abs(actualSize - rem) > 1) {
+            var remScaled = rem * rem / actualSize;
+            docEl.style.fontSize = remScaled + "px";
+          }
+        }
+        if (hasZoom) {
+          var style = document.getElementById('J__style');
+          if (!style) {
+            style = document.createElement('style');
+            style.id = 'J__style';
+          }
+          var r, s;
+          if (zoomRuler === 'height') {
+            r = height / designHeight;
+          } else {
+            r = width / designWidth;
+          }
+          r.toFixed && (r = r.toFixed(5));
+          s = '.__z{zoom:' + r + '} ';
+          s += '.__s{-webkit-transform: scale(' + r + ');transform: scale(' + r + ')}';
+
+          style.innerHTML = s;
+          document.getElementsByTagName('head')[0].appendChild(style);
+        }
+      }
+
+      function dbcRefresh() {
+        clearTimeout(tid);
+        tid = setTimeout(refresh, 100)
+      }
+
+      win.addEventListener("resize", function () {
+        dbcRefresh()
+      }, false);
+
+      win.addEventListener("pageshow", function (e) {
+        if (e.persisted) {
+          dbcRefresh();
+        }
+      }, false);
+      refresh();
+      if (hasRem) {
+        remCalc.refresh = refresh;
+        remCalc.rem2px = function (d) {
+          var val = parseFloat(d) * this.rem;
+          if (typeof d === "string" && d.match(/rem$/)) {
+            val += "px";
+          }
+          return val;
+        };
+        remCalc.px2rem = function (d) {
+          var val = parseFloat(d) / this.rem;
+          if (typeof d === "string" && d.match(/px$/)) {
+            val += "rem";
+          }
+          return val;
+        };
+        win.remCalc = remCalc;
+      }
+    })(window);
+  </script>
+  <link rel="stylesheet" href="./common.css">
+  <style>
+    .section-title {
+      color: #999999;
+      font-size: 0.373rem;
+      padding: 0.4rem 0.4rem 0.2rem;
+    }
+
+    /****** 回答卡片 ******/
+    .question-info-section {
+      margin-bottom: 0.267rem;
+      background-color: #fff;
+    }
+
+    .question-info-section .card-header {
+      padding: 0.4rem;
+      border-bottom: 1px solid #DDDDDD;
+      display: flex;
+    }
+
+    .question-info-section .card-header img {
+      width: 0.667rem;
+      height: 0.667rem;
+      margin-right: 0.2rem;
+    }
+
+    .question-info-section .card-header .question-title {
+      font-size: 0.48rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .question-info-section .card-header .main-context {
+      display: flex;
+    }
+
+    .question-info-section .card-header .user-info {
+      font-size: 0.32rem;
+      margin-right: 0.4rem;
+      color: #FF0000;
+    }
+
+    .question-info-section .card-header .status-info {
+      color: #999999;
+      display: flex;
+    }
+
+    .question-info-section .card-header .view-number img {
+      width: 0.32rem;
+      height: 0.226rem;
+    }
+
+    .question-info-section .card-header .update-time {
+      margin-left: 0.4rem;
+    }
+
+    .question-info-section .card-content {
+      font-size: 0.32rem;
+      padding: 0.4rem;
+      border-bottom: 1px solid #DDDDDD;
+    }
+
+    .question-info-section .card-content .text-label {
+      color: #999999;
+      margin-bottom: 0.2rem;
+    }
+
+    /****** 问题回答卡片 ******/
+    .answer-sheet-section {
+      background-color: #fff;
+    }
+
+    .answer-sheet-section .card-header {
+      padding: 0.267rem 0.4rem;
+      display: flex;
+    }
+
+    .answer-sheet-section .card-header > img {
+      width: 1.067rem;
+      height: 1.067rem;
+      margin-right: 0.267rem;
+    }
+
+    .answer-sheet-section .user-name {
+      margin-bottom: 0.213rem;
+    }
+
+    .answer-sheet-section .user-name span {
+      font-size: 0.347rem;
+      font-weight: 600;
+    }
+
+    .answer-sheet-section .user-name .text-tag {
+      color: #08AEF8;
+      font-size: 0.267rem;
+      font-weight: normal;
+      font-style: normal;
+      padding: 0.026rem 0.16rem;
+      margin-left: 0.2rem;
+      border-radius: 0.233rem;
+      background-color: #EBFBFF;
+      display: inline-block;
+    }
+
+    .answer-sheet-section .main-context span {
+      font-size: 0.32rem;
+    }
+
+    .answer-sheet-section .main-context .text-label {
+      font-weight: 600;
+      margin-left: 0.267rem;
+    }
+
+    .answer-sheet-section .card-content {
+      padding: 0 0.267rem 0.4rem;
+    }
+
+    .answer-sheet-section .text-details {
+      font-size: 0.32rem;
+      line-height: 0.533rem;
+      padding: 0.4rem;
+      margin-bottom: 0.4rem;
+      background-color: #F2F2F2;
+    }
+
+    .answer-sheet-section .btn-row {
+      text-align: center;
+    }
+
+    .answer-sheet-section .submit-btn {
+      color: #0BAFF8;
+      padding: 0.173rem 0.533rem;
+      border: 1px solid #0BAFF8;
+      border-radius: 0.533rem;
+      background-color: #F5FCFF;
+      display: inline-block;
+    }
+
+    .answer-sheet-section .submit-btn i {
+      width: 0.48rem;
+      height: 0.533rem;
+      margin-right: 0.267rem;
+      vertical-align: middle;
+      background: url("./assets/icon_msg_2.png") center center/contain no-repeat;
+      display: inline-block;
+    }
+
+    .answer-sheet-section .submit-btn span {
+      font-size: 0.373rem;
+      vertical-align: middle;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+  <div class="page-header bottom-line">
+    <div class="header-topbar-wrap">
+      <a class="go-back-link" href="javascript:history.back(-1)"><i class="icon-go-back"></i></a>
+      <div class="page-title">如何补钙效果更好</div>
+      <div class="menu-nav">
+        <i class="icon-menu-nav"></i>
+      </div>
+      <div class="comp-entry-modal">
+        <div class="comp-shortcut-entry">
+          <ul class="entry-list">
+            <li>
+              <img src="./assets/icon_index_1.png">
+              <p>首页</p>
+            </li>
+            <li>
+              <img src="./assets/icon_doc_2.png">
+              <p>科普文章</p>
+            </li>
+            <li>
+              <img src="./assets/icon_ask_1.png">
+              <p>专家问答</p>
+            </li>
+            <li>
+              <img src="./assets/icon_baike.png">
+              <p>疾病百科</p>
+            </li>
+            <li>
+              <img src="./assets/icon_msg.png">
+              <p>我要提问</p>
+            </li>
+            <li>
+              <img src="./assets/icon_register_1.png">
+              <p>医生注册</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="question-info-section">
+    <div class="card-header">
+      <img src="./assets/icon_question_1.png">
+      <div class="question-row">
+        <div class="question-title">如何补钙效果更好</div>
+        <div class="main-context">
+          <div class="user-info">
+            <span>女  |  22岁 </span>
+          </div>
+          <div class="status-info">
+            <div class="view-number">
+              <img src="./assets/icon_view.png">
+              <span>90876人</span>
+            </div>
+            <div class="update-time">2018-09-02</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-content">
+      <p class="text-label">病情描述</p>
+      <p class="text-details">如何补钙效果更好</p>
+    </div>
+  </section>
+  <section class="answer-sheet-section">
+    <div class="card-header">
+      <img src="./assets/user_avatar_2.png">
+      <div class="user-info">
+        <div class="user-name">
+          <span>孙丽</span>
+          <i class="text-tag">主任医师</i>
+        </div>
+        <div class="main-context">
+          <span>首都医科大学宣武医院 </span>
+          <span class="text-label">妇科</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-content">
+      <div class="text-details">
+        <p>其实我们都知道，一旦得了心脏病就会严重的危机到生命。而且大部分的心脏病人都是要长期服用药物才能维持生命的。但是人们通常会因为长期服用药物而出现一系列的不适感。其实日常通过食疗也是可以得到维持的。</p>
+      </div>
+      <div class="btn-row">
+        <div class="submit-btn">
+          <i></i><span>我要提问</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="related-question">
+    <div class="section-title">相关问答</div>
+    <div class="section-content">
+      <div class="question-card">
+        <div class="question-title">如何补充钙效果最好</div>
+        <div class="question-describe">补钙是一个热门的话题，帮助人的身体补充钙的方法有很多，除了直接吃些补钙…</div>
+        <div class="card-info">
+          <div class="author-info">
+            <img src="./assets/user_avatar_1.png">
+            <span>张华 | 主任医师 | 内科</span>
+          </div>
+          <div class="status-info">
+            <div class="view-number">
+              <img src="./assets/icon_view.png">
+              <span>90876人</span>
+            </div>
+            <div class="update-time">2018-09-02</div>
+          </div>
+        </div>
+      </div>
+      <div class="question-card">
+        <div class="question-title">如何补充钙效果最好</div>
+        <div class="question-describe">补钙是一个热门的话题，帮助人的身体补充钙的方法有很多，除了直接吃些补钙…</div>
+        <div class="card-info">
+          <div class="author-info">
+            <img src="./assets/user_avatar_1.png">
+            <span>张华 | 主任医师 | 内科</span>
+          </div>
+          <div class="status-info">
+            <div class="view-number">
+              <img src="./assets/icon_view.png">
+              <span>90876人</span>
+            </div>
+            <div class="update-time">2018-09-02</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="page-footer">
+    <div class="friendship-link">网站简介 | 友情链接 | 联系我们 | 招聘 | 免责声明</div>
+    <div class="copyright">
+      <p>特别声明：本站内容仅供参考，不作为诊断及医疗依据,请谨慎参阅，
+        本站不承担由此引起的相关责任</p>
+      <p>Copyright © 2013-2018 版权所有 未经授权请勿转载 </p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

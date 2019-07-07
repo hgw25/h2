@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta content="telephone=no" name="format-detection">
+  <title>提问成功</title>
+  <script>
+    (function (win) {
+      var remCalc = {};
+      var docEl = win.document.documentElement,
+        tid,
+        hasRem = true,
+        hasZoom = true,
+        zoomRuler = 'width',
+        designWidth = 750,
+        designHeight = 1206;
+
+      function refresh() {
+        var width = docEl.clientWidth;
+        var height = docEl.clientHeight;
+        if (width > 768) width = 768;
+        if (hasRem) {
+          var rem = width / 10;
+          docEl.style.fontSize = rem + "px";
+          remCalc.rem = rem;
+          var actualSize = parseFloat(window.getComputedStyle(document.documentElement)["font-size"]);
+          if (actualSize !== rem && actualSize > 0 && Math.abs(actualSize - rem) > 1) {
+            var remScaled = rem * rem / actualSize;
+            docEl.style.fontSize = remScaled + "px";
+          }
+        }
+        if (hasZoom) {
+          var style = document.getElementById('J__style');
+          if (!style) {
+            style = document.createElement('style');
+            style.id = 'J__style';
+          }
+          var r, s;
+          if (zoomRuler === 'height') {
+            r = height / designHeight;
+          } else {
+            r = width / designWidth;
+          }
+          r.toFixed && (r = r.toFixed(5));
+          s = '.__z{zoom:' + r + '} ';
+          s += '.__s{-webkit-transform: scale(' + r + ');transform: scale(' + r + ')}';
+
+          style.innerHTML = s;
+          document.getElementsByTagName('head')[0].appendChild(style);
+        }
+      }
+
+      function dbcRefresh() {
+        clearTimeout(tid);
+        tid = setTimeout(refresh, 100)
+      }
+
+      win.addEventListener("resize", function () {
+        dbcRefresh()
+      }, false);
+
+      win.addEventListener("pageshow", function (e) {
+        if (e.persisted) {
+          dbcRefresh();
+        }
+      }, false);
+      refresh();
+      if (hasRem) {
+        remCalc.refresh = refresh;
+        remCalc.rem2px = function (d) {
+          var val = parseFloat(d) * this.rem;
+          if (typeof d === "string" && d.match(/rem$/)) {
+            val += "px";
+          }
+          return val;
+        };
+        remCalc.px2rem = function (d) {
+          var val = parseFloat(d) / this.rem;
+          if (typeof d === "string" && d.match(/px$/)) {
+            val += "rem";
+          }
+          return val;
+        };
+        win.remCalc = remCalc;
+      }
+    })(window);
+  </script>
+  <link rel="stylesheet" href="./common.css">
+  <style>
+    .tips-content {
+      font-size: 0;
+      padding: 1.333rem 1.653rem 5.84rem;
+      margin-bottom: 1.85rem;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .tips-content img {
+      width: 1.333rem;
+    }
+
+    .tips-content p:nth-child(2) {
+      font-size: 0.48rem;
+      margin: 0.4rem 0;
+      line-height: 0.667rem;
+    }
+
+    .tips-content p:nth-child(3) {
+      color: #666666;
+      font-size: 0.293rem;
+      line-height: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+  <div class="page-header bottom-line">
+    <div class="header-topbar-wrap">
+      <a class="go-back-link" href="javascript:history.back(-1)"><i class="icon-go-back"></i></a>
+      <div class="page-title">提交成功</div>
+      <div class="menu-nav">
+        <i class="icon-menu-nav"></i>
+      </div>
+      <div class="comp-entry-modal">
+        <div class="comp-shortcut-entry">
+          <ul class="entry-list">
+            <li>
+              <img src="./assets/icon_index_1.png">
+              <p>首页</p>
+            </li>
+            <li>
+              <img src="./assets/icon_doc_2.png">
+              <p>科普文章</p>
+            </li>
+            <li>
+              <img src="./assets/icon_ask_1.png">
+              <p>专家问答</p>
+            </li>
+            <li>
+              <img src="./assets/icon_baike.png">
+              <p>疾病百科</p>
+            </li>
+            <li>
+              <img src="./assets/icon_msg.png">
+              <p>我要提问</p>
+            </li>
+            <li>
+              <img src="./assets/icon_register_1.png">
+              <p>医生注册</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tips-content">
+    <img src="./assets/icon_success_1.png">
+    <p>提交成功</p>
+    <p>一对一分析病情，省时省心，您的信息我们将严格保密，请您耐心等待我们的专业解答。</p>
+  </div>
+  <div class="page-footer">
+    <div class="friendship-link">网站简介 | 友情链接 | 联系我们 | 招聘 | 免责声明</div>
+    <div class="copyright">
+      <p>特别声明：本站内容仅供参考，不作为诊断及医疗依据,请谨慎参阅，
+        本站不承担由此引起的相关责任</p>
+      <p>Copyright © 2013-2018 版权所有 未经授权请勿转载 </p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

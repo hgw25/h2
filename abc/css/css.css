@@ -1,0 +1,494 @@
+body{ font-family: PingFangSC-Regular,Microsoft YaHei;}
+.pubIcon{ background: url(../img/pubIcon.png) no-repeat 0 0;}
+.topHeader{ width: 100%; height: 37px; background: #F9F9F9; min-width: 1200px;}
+.topHeaderBox{ width: 1200px; height: 37px; margin: 0 auto;}
+.topHeaderLeft{ float:left; display: block; height: 37px; line-height: 37px; font-size: 0;}
+.topHeaderLeft i,.topHeaderLeft span{ display:inline-block; vertical-align: middle;}
+.topHeaderLeft i{ background-position:-162px 0; width: 14px; height: 17px;}
+.topHeaderLeft span{ font-size: 12px; color: #4A4A4A ; margin-left: 10px;}
+.topHeaderLeft:hover span{ color:#02C3F0;}
+.topNav{ float:right; height: 37px;}
+.topNav .navItem{ float:left; display: block; font-size: 0;  height: 37px; line-height: 37px; margin-left: 30px; position: relative; z-index: 100;}
+.topNav .navItem:hover span{color:#02C3F0;}
+.topNav .navItem i,.topNav .navItem span{ display: inline-block; vertical-align: middle;}
+.topNav .navItem.phone i{  background-position:-119px 0; width: 11px; height: 15px;}
+.topNav .navItem.wecat i{  background-position:-137px 0; width: 18px; height: 15px;}
+.topNav .navItem.wecat{margin-right: 100px;}
+
+.topNav .navItem span{ color:#4A4A4A ; font-size: 12px; margin-left: 10px;}
+.topNav .navItem:last-child span{ margin-left: 0;}
+.codeBox{ position:absolute; top: 37px; width: 364px; height: 130px; padding: 15px; border: 1px solid #e1e1e1; background: #fff; -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.1); box-shadow: 0 0 20px rgba(0,0,0,0.1); left: -131px; display: none;}
+.sanjiao{position:absolute;top:-21px;left:162px;display:block;height:0;width:0;font-size: 0;line-height: 0;border-color:transparent transparent #e1e1e1 transparent;
+    border-style:dashed dashed solid dashed;border-width:10px;}
+.sanjiao s{position:absolute; top:-9px;left:-10px;display:block;height:0;width:0;font-size: 0;line-height: 0;border-color:transparent transparent #fff transparent;border-style:dashed dashed solid dashed;border-width:10px;}
+
+.codeImg{ width:130px; height: 130px; float: left; font-size: 0;}
+.codeRight{ height:130px; margin-left: 145px;}
+.codeTilte{ font-size:24px; color: #0CA6E6 ; line-height: 30px;}
+.codeText{ margin-top: 15px;}
+.codeText p{ color:#666; font-size: 16px; line-height: 28px;}
+.mainBody{ width:100%; min-width: 1200px; padding-bottom: 30px;}
+.mainBox{ width:1200px; margin:0 auto;}
+.serchBox{ height:80px;}
+.logo{ float:left; margin-top: 11px; font-size: 0;}
+.indexNav{ float:left; height: 80px; margin-left: 90px;}
+.indexNav li{ float:left; height: 80px; line-height: 80px; margin-right: 50px;}
+.indexNav li a{ display: block; position: relative;}
+.indexNav li a span{ color:#151515; font-size: 18px;}
+.indexNav li.cur a span{ color:#01A2E5;}
+.indexNav li a p{ position:absolute; background:-webkit-linear-gradient(left,#02CFF4,#3992F8); background:linear-gradient(left,#02CFF4,#3992F8); width: 36px; height: 5px;-webkit-border-radius: 2.5px 2.5px 2.5px 2.5px; border-radius: 2.5px 2.5px 2.5px 2.5px; bottom: 20px; left: 50%; margin-left: -18px; display: none;}
+.indexNav li.cur a p{ display:block;}
+.indexNav li a:hover{ text-decoration: none;}
+.serchLayer{ width:400px; height:40px; float:right; margin-top: 20px; position: relative; background: #F5F5F5; -webkit-border-radius: 20px 20px 20px 20px; border-radius: 20px 20px 20px 20px;}
+.serchInput{ height:40px; line-height: 40px; width: 300px; font-size: 14px; border:none; background: none; padding-left: 15px;}
+.serchBtn{ background-position:-68px 0; display: block; cursor: pointer; position: absolute; right: 0; top: 0; width: 40px; height: 40px;}
+.bannerBox{ height:350px;}
+.bannerBox img{  width: 895px; height: 350px;}
+.swiper-container{ float:left; width: 895px; height: 350px;}
+.swiper-container .swiper-pagination-bullets{ bottom: 15px!important;}
+.swiper-container .swiper-pagination-bullet{ width:12px; height:12px; background: #9D9D9D; opacity: 1; margin: 0 10px !important;}
+.swiper-container .swiper-pagination-bullet.swiper-pagination-bullet-active{ background: #666666; width: 44px; -webkit-border-radius: 6px 6px 6px 6px; border-radius: 6px 6px 6px 6px;}
+.advisoryBox{ float:right; width: 290px;}
+.advisoryBtn{ height:60px; background:-webkit-linear-gradient(left,#02CFF4,#3992F8); background:linear-gradient(left,#02CFF4,#3992F8); font-size: 0; line-height: 60px; text-align: center; -webkit-border-radius: 8px; border-radius: 8px; cursor: pointer;}
+.advisoryBtn i,.advisoryBtn span{ display:inline-block; vertical-align: middle;}
+.advisoryBtn i{ background-position:0 -40px; width: 32px; height: 32px;}
+.advisoryBtn span{ font-size:24px; color:#fff; margin-left: 15px;}
+.headLine{ border:1px solid #DFDFDF; margin-top: 15px; height: 273px;}
+.headLineTilte{ height: 50px;}
+.headLineTilteText{ float:left; font-size: 0; line-height: 50px;}
+.headLineTilteText i,.headLineTilteText span{ display:inline-block; vertical-align: middle;}
+.headLineTilteText i{ width:8px; height:15px; background: #02C3F0;}
+.headLineTilteText span{ font-size:20px; color:#333; margin-left: 10px;}
+.more{ float:right; line-height: 50px; color:#01A2E5; font-size: 14px; margin-right: 15px;}
+.more:hover{ text-decoration: none; color: #01A2E5;}
+.headLineList{ padding:0 20px 0 15px;}
+.headLineList li{ line-height:30px; height: 30px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+.headLineList li a{ color:#666666; font-size: 14px;}
+.headLineList li a:hover{ color:#02C3F0; text-decoration: none;}
+.floorBox{ width:100%; margin-top: 20px;}
+.floorHeader{ height:40px;}
+.floorTitle{ font-size: 0; float:left;line-height: 40px; margin-right: 50px;}
+.floorTitle i,.floorTitle span{ display:inline-block; vertical-align: middle;}
+.floorTitle i{ width:8px; height:15px; background: #02C3F0;}
+.floorTitle span{ font-size:20px; color:#333; margin-left: 10px;}
+.floorTab{ float:left; height: 40px;}
+.floorTab li{ float:left; height: 40px; line-height: 40px; margin-right: 50px;}
+.floorTab li a{ display: block; position: relative;}
+.floorTab li a span{ color:#151515; font-size: 14px;}
+.floorTab li.cur a span{ color:#01A2E5;}
+.floorTab li a i{ display:block;position:absolute; background:-webkit-linear-gradient(left,#02CFF4,#3992F8); background:linear-gradient(left,#02CFF4,#3992F8); width: 100%; height: 5px;-webkit-border-radius: 2.5px 2.5px 2.5px 2.5px; border-radius: 2.5px 2.5px 2.5px 2.5px; bottom: 0; left: 0; display: none;}
+.floorTab li.cur a i{ display:block;}
+.floorTab li a:hover{ text-decoration: none;}
+.floorHeader .more{ line-height:40px; margin-right: 0;}
+.essayList{ width:100%; }
+.essayList li{ float:left;  width: 283px; height: 262px; padding: 2px; border:1px solid #DFDFDF; margin: 15px 15px 0 0; position: relative;-webkit-transition: all .15s linear; -moz-transition: all .15s linear; -ms-transition: all .15s linear; -o-transition: all .15s linear; transition: all .15s linear;}
+.essayList li.on{ box-shadow: 0 6px 20px 0 rgba(0,0,0,0.15); }
+.essence{ background: #FF9F00; color: #fff; font-size: 14px; text-align: center; line-height: 26px; -webkit-border-bottom-left-radius: 12px; border-bottom-left-radius: 12px; -webkit-border-bottom-right-radius: 12px; border-bottom-right-radius: 12px; display: block; width: 24px; height: 30px; position: absolute; left: 2px; top: 2px; z-index: 200; font-style: normal;}
+.essayList li .itemBox{ width: 100%; height: 262px;  position: relative;}
+.essayList li .itemBox .pic{ height:160px; width:100%; position: relative;  z-index: 1;}
+.essayList li .itemBox .pic img{ width:100%; height: 160px;}
+.essayList li .itemBox .dataBox{ position: absolute; bottom: 0; left: 0; width: 100%; height: 30px; background: rgba(255,255,255,0.7); z-index: 10;}
+.accessNum{ float:left;  font-size: 0; height:30px; line-height: 30px; margin-left: 15px;}
+.accessNum i,.accessNum span{ display:inline-block; vertical-align: middle;}
+.accessNum i{ background-position:-45px -48px; width: 15px; height: 11px;}
+.accessNum span{ font-size: 12px; color:#666; margin-left: 10px;}
+.dataTime{ float:right; line-height: 30px; color: #666; margin-right: 15px;}
+.problem{ padding:0 15px; font-size: 18px; line-height: 20px; height: 20px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;margin: 10px 0 30px;}
+.problem a{ color:#333;font-weight: bolder;}
+.essayList li.on .problem a{ color:#02C3F0;}
+.doctorBox{ margin:0 15px; height: 30px;}
+.doctorBox .doctorTx{ float: left; width:30px; height: 30px; -webkit-border-radius: 50%; border-radius: 50%; overflow: hidden; font-size: 0;}
+.doctorBox .doctorTx img{ width:30px; height: 30px;}
+.doctorName{ float:left; line-height: 30px; margin-left: 15px; color: #999;}
+.essayList li:nth-child(4n+0){  margin: 15px 0 0 0; width: 282px;}
+.answerBox{ height:470px; margin-top: 10px;}
+.answerInfo{ width:865px; border: 1px solid #DFDFDF; padding: 0 15px; height: 468px; float: left;}
+.doctorList{ width:100%;}
+.doctorList li{ width: 375px; float: left; margin-top: 33px;}
+.doctorList li:nth-child(even){ float:right;}
+.doctorLeft{ float:left; width: 68px; position: relative;}
+.doctorLeft .doctorPic{ width:68px; height: 68px; -webkit-border-radius: 50%; border-radius: 50%; overflow: hidden;}
+.doctorLeft .doctorPic img{ width:68px; height: 68px;}
+.doctorLeft .doctorFullname{ font-size: 16px; text-align: center; line-height: 1; color:#333; margin-top: 18px;}
+.doctorRight{ margin-left: 83px;}
+.doctorProblem{ font-size: 18px; line-height: 1; margin-bottom: 10px; font-weight: bolder;}
+.doctorProblem a{ color:#333;}
+.doctorProblem a:hover{ color:#02C3F0;}
+.doctorText{ height: 40px; line-height: 20px; overflow: hidden; font-size: 14px; color:#666;display: -webkit-box; display:box; text-overflow: ellipsis; -webkit-box-orient: vertical; box-orient: vertical; -webkit-line-clamp: 2; }
+.doctorBottom{ height: 16px; margin-top: 20px;}
+.doctorBottom .accessNum{ line-height: 16px; height: 16px; margin-left: 0;}
+.doctorBottom .accessNum span{ color:#999;}
+.doctorBottom .dataTime{line-height: 16px; margin-right: 0;color:#999;}
+.consultativeBox{ float:right; border: 1px solid #DFDFDF; width: 256px; height: 468px; padding: 0 15px;}
+.consultativeBox .consultativeTitle{ height:45px; line-height: 40px;}
+.consultativeTitle{ height:50px; position: relative; line-height: 50px; color: #02C3F0; font-size: 14px; margin-bottom: 20px;}
+.consultativeTitle i{ display:block; width: 30px; position:absolute; background:-webkit-linear-gradient(left,#02CFF4,#3992F8); background:linear-gradient(left,#02CFF4,#3992F8); height: 5px;-webkit-border-radius: 2.5px 2.5px 2.5px 2.5px; border-radius: 2.5px 2.5px 2.5px 2.5px; bottom: 5px; left: 0;}
+.headLineLayer i{ background-position:0 0; width: 26px; height: 26px; display: block; float: left;}
+.headLineRight{ margin-left: 36px;}
+.headLineRightTitle{ font-size: 18px; height: 26px; line-height: 26px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.headLineRightTitle a{  color: #333;font-weight: bolder;}
+.headLineRightTitle a:hover{ color:#02C3F0;}
+.headLineRightText{ line-height: 20px; font-size: 14px; margin-top: 5px;}
+.headLineRightText a{ color:#999;}
+.consultativeList{ margin-top: 30px;}
+.consultativeList li{}
+.fristBox{ display:none; margin-bottom: 10px;}
+.consultativeList li .secondBox{ height:50px; padding-left: 10px;}
+.consultativeList li .secondBox i{ display:block; background: #02C3F0; width: 8px; height: 8px; float:left; -webkit-border-radius: 50%; border-radius: 50%; margin-top: 23px;}
+.consultativeList li .secondBox .text{ height:50px; line-height: 50px; margin-left: 18px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.consultativeList li .secondBox .text a{ color:#333; font-size: 14px;}
+.linkUrl{ display:block; width: 100%; height: 100%; position: absolute; left: 0; top: 0; z-index: 10;}
+.fDoctorList{ width:100%; margin-top: 10px;}
+.fDoctorList li{ width: 287px; height: 272px; border: 1px solid #DFDFDF; position: relative; background: #fff; float:left; margin: 0 15px 15px 0; -webkit-transition: all .2s linear; -moz-transition: all .2s linear; -ms-transition: all .2s linear; -o-transition: all .2s linear; transition: all .2s linear; cursor: pointer;}
+.fDoctorList li.on{-webkit-box-shadow: 0 6px 20px 0 rgba(0,0,0,0.15);box-shadow: 0 6px 20px 0 rgba(0,0,0,0.15); -webkit-transition: all .2s linear; -moz-transition: all .2s linear; -ms-transition: all .2s linear; -o-transition: all .2s linear; transition: all .2s linear;}
+.fDoctorList li:nth-child(4n+0){  margin: 0 0 15px 0; width: 282px;}
+.fDoctorTop{ width:100%; height: 100%; background: #fff; position: absolute; left: 0; top: 0; z-index: 100;}
+.fDoctorTx{ width:90px; height: 90px; padding: 4px; background: #fff; -webkit-border-radius: 50%; border-radius: 50%;  overflow: hidden; margin: 0 auto; -webkit-box-shadow: 0 0 15px 0 rgba(0,79,125,0.12); box-shadow: 0 0 15px 0 rgba(0,79,125,0.12); margin-top: 20px;}
+.fDoctorTx img{ width:90px; height: 90px;}
+.fDoctorName{ text-align: center; font-size: 0; height: 24px; line-height: 24px; margin-top: 10px;}
+.fDoctorName span,.fDoctorName i{ display:inline-block; vertical-align: middle;}
+.fDoctorName span{ font-size:20px; line-height: 24px; color: #333; margin-right: 10px;}
+.fDoctorName i{ height:24px; -webkit-border-radius: 12px 12px 12px 12px; font-size: 12px; font-style: normal;border-radius: 12px 12px 12px 12px; background: #EBFBFF; color:#08AEF8; padding: 0 10px;}
+.hospitalName{ color:#333; font-size: 18px; font-weight: bolder;text-align: center; margin-top: 15px; line-height: 1;}
+.askBtn{ height: 40px; width: 124px; text-align: center; line-height: 40px;color: #fff; -webkit-border-radius: 20px 20px 20px 20px; border-radius: 20px 20px 20px 20px; font-size: 16px; position: absolute; bottom: 24px; left: 50%; margin-left: -62px; background:-webkit-linear-gradient(left,#02CFF4,#3992F8); background:linear-gradient(left,#02CFF4,#3992F8);-webkit-box-shadow: 0 10px 20px 0 rgba(0,0,0,0.15);box-shadow: 0 10px 20px 0 rgba(0,0,0,0.15); cursor: pointer;}
+
+.fDoctorBottom{ width:100%; height: 200px; background: #fff; position: relative; z-index: 101;-webkit-transform: translateY(-100%); -moz-transform: translateY(-100%);
+    -ms-transform: translateY(-100%); -o-transform: translateY(-100%); transform: translateY(-100%); -webkit-transition: all .2s linear; -moz-transition: all .2s linear; -ms-transition: all .2s linear; -o-transition: all .2s linear; transition: all .2s linear;}
+.fDoctorList li.on .fDoctorBottom{-webkit-transform: translateY(0); -moz-transform: translateY(0); -ms-transform: translateY(0); -o-transform: translateY(0);transform: translateY(0);}
+.fDoctorBottom .hospitalName{ margin-top: 0; padding-top: 30px; color: #333; font-size: 18px;}
+.fDoctorBottom .fDoctorName{ margin-top: 15px;}
+.fDoctorBottom .fDoctorName span{ color: #333; font-size: 16px;}
+.animitBox{ display: block;width:100%; height: 100%; overflow: hidden;}
+.goodAt{ line-height:20px; font-size: 14px; color:#666; margin-top: 15px; padding: 0 15px;}
+.encyclopediaBox{ border:1px solid #DFDFDF; padding: 0 24px; height: 140px; margin-top: 10px;}
+.itemList{ float:left; margin-right: 50px; width: 250px;}
+.itemList:last-child{ margin-right: 0;}
+.itemListTitle{ font-size:18px; color:#333; line-height: 1; margin-top: 20px; font-weight: bolder;padding-left: 10px;}
+.itemListInfo{ margin-top: 20px; height: 65px; line-height: 20px; overflow: hidden;display: -webkit-box; display:box; text-overflow: ellipsis; -webkit-box-orient: vertical; box-orient: vertical; -webkit-line-clamp: 3;}
+.itemListInfo a{ margin-right: 10px; margin-left:10px;color: #666; font-size: 14px;line-height: 22px;}
+.itemListInfo a:hover{ color:#02C3F0;}
+.partnerBox{ margin-top: 10px; border: 1px solid #DFDFDF;  padding: 15px 20px 0;}
+.partnerBox p{ width:179px; height: auto; float: left; font-size: 0; margin: 0 65px 15px 0;}
+.partnerBox p:nth-child(5n+0){margin: 0 0 15px 0;}
+.partnerBox p img{ width:179px; height: auto;box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.15); }
+
+.footer{ width:100%; height: 120px; background: #F9F9F9; padding-top: 35px;}
+.footerNav{ text-align: center; line-height: 1;}
+.footerNav a,.footerNav span{ color:#999; font-size: 14px;}
+.footerNav a:hover{ color:#02C3F0;}
+.footerNav span{ margin:5px;}
+.copyRight{ margin-top: 20px;}
+.copyRight p{ font-size: 14px; line-height: 24px; color: #999; text-align: center;}
+/*疾病百科*/
+.breadBox{ height: 20px; line-height: 20px; font-size: 14px; margin-top: 20px;}
+.breadBox i,.breadBox a,.breadBox span,.breadBox em{ float:left;}
+.breadBox i{background-position: -97px -47px; width:15px; height: 14px; margin-top: 3px; margin-right: 10px;}
+.breadBox a{ color:#999;}
+.breadBox span{ color:#999; margin: 0 5px;}
+.breadBox em{ font-style: normal; color:#151515;}
+.filterTabBox{ margin-top: 20px;}
+.filterTab{ border-bottom: 1px solid #DFDFDF; height: 38px; margin-bottom: 10px;}
+.filterTab span{ display:block; float: left; margin-right: 2px; width: 180px; height: 38px; line-height: 38px; background: #F9F9F9;-webkit-border-top-left-radius: 8px; border-top-left-radius: 8px;-webkit-border-top-right-radius: 8px; border-top-right-radius: 8px; text-align: center; font-size: 16px; color:#999; cursor: pointer;}
+.filterTab span a{width: 100%;height: 100%;display: block;}
+.filterTab span.cur{ background:#0EA7E6; color: #fff;}
+.filterTab span.cur a{ color: #fff;}
+
+.tabInfoBox{ width:100%;}
+.tabInfoItem{ border:1px solid #DFDFDF; padding:20px; background: #f9f9f9; display: block;}
+.tabTypeItem{ margin-bottom: 20px;}
+.tabTypeItem:last-child{ margin-bottom: 0;}
+.tabTypeI{ float:left; line-height: 30px; font-size: 16px; color: #999;}
+.depList{ margin-left: 48px; font-size: 0;}
+.depList span{ display:inline-block; color: #151515; font-size: 14px; margin-right: 10px; cursor: pointer;}
+.depList span.cur{ color: #fff; background: #0EA7E6;}
+.depList span a{display:inline-block; color: #151515;padding: 0 10px; height: 30px; line-height: 30px; }
+
+.depList span.cur a{ color: #fff;}
+.letter{ height:30px;}
+.letter span{display:inline-block;padding: 0 10px; height: 30px; line-height: 30px; color: #333; font-size: 16px; cursor: pointer;}
+.letter span.cur{ color: #fff; background: #0EA7E6;}
+.diseaseBox{ margin-top: 10px;}
+.diseaseTitleBox{ height: 30px;}
+.diseaseTilte{ float:left; height: 30px; line-height: 30px; font-size: 0;}
+.diseaseTilte i,.diseaseTilte span{ display:inline-block; vertical-align: middle;}
+.diseaseTilte i{ background-position:-71px -49px; width: 17px; height: 12px; margin-right: 10px;}
+.diseaseTilte span{ font-size:14px; color:#999;}
+.diseaseNum{ float:right; font-size: 14px; color: #666; line-height: 30px;}
+.diseaseNum span{ color:#ff9c00;}
+.diseaseListBox{ border:1px solid #DFDFDF; padding:0 20px; width: 1158px; overflow: hidden;}
+.diseaseList{ width: 1158px; border-bottom:1px dotted #DFDFDF; padding: 15px 0; }
+.diseaseList:last-child{ border-bottom:0;}
+.diseaseUl{ width: 1250px;}
+.diseaseUl li{ width: 120px; margin-right: 53px; float:left; line-height: 36px; font-size: 0;}
+.diseaseUl li i,.diseaseUl li span{ display:inline-block; vertical-align: middle;}
+.diseaseUl li i{ width:5px; height: 5px; -webkit-border-radius: 50%; border-radius: 50%; background: #999999; margin-right: 10px;}
+.diseaseUl li span{ color:#333; font-size: 14px;}
+.diseaseUl li a:hover i{background: #0EA7E6;}
+.diseaseUl li a:hover span{ color:#0EA7E6;}
+.floatPop{ background:-webkit-linear-gradient(135deg, #02CFF4 0%, #3992F8 100%); background:linear-gradient(135deg, #02CFF4 0%, #3992F8 100%); width: 80px; height: 73px; -webkit-border-top-left-radius: 10px; border-top-left-radius: 10px;  -webkit-border-bottom-left-radius: 10px; border-bottom-left-radius: 10px;-webkit-box-shadow: 0 10px 20px 0 rgba(0,0,0,0.15); box-shadow: 0 10px 20px 0 rgba(0,0,0,0.15); position: fixed; top: 170px; right: 0; z-index: 1000; font-size: 24px; color: #fff; text-align: center; line-height: 30px; padding-top: 7px; cursor: pointer;}
+.diseaseName{ font-size: 18px; color: #333; border-bottom: 1px solid #DFDFDF; margin-top: 20px; line-height: 1; padding-bottom: 10px;}
+.diseaseInfoBox{ width:100%; margin-top: 15px;}
+.diseasePubTitle{ font-size:0; height: 30px; line-height: 30px; margin-bottom: 5px;}
+.diseasePubTitle i,.diseasePubTitle span{ display:inline-block; vertical-align: middle;}
+.diseasePubTitle span{ font-size:16px; color:#999999; margin-left: 10px;}
+.diseasePubTitle i.disease-1{  background-position:-121px -47px; width: 16px; height: 18px;}
+.diseaseInfo{ padding:20px; border: 1px solid #DFDFDF; color: #333; font-size: 14px; line-height: 28px;}
+.mt20{ margin-top:20px;}
+.diseasePubTitle i.disease-2{  background-position:-146px -47px; width: 16px; height: 18px;}
+.diseasePubTitle i.disease-3{  background-position:-171px -47px; width: 16px; height: 18px;}
+.diseasePubTitle i.disease-4{  background-position:-97px -68px; width: 18px; height: 18px;}
+.diseaseLeftBox{ width:897px; float: left;}
+.articleBox .essayList li{ margin:0 15px 15px 0;}
+.articleBox .essayList li:nth-child(3n+0){  margin: 0 0 15px 0;}
+.articleBox .essayList li:nth-child(4n+0){   margin:0 15px 15px 0;}
+.recommendDrBox{ float:right; width: 288px;}
+.recommendDr{ border:1px solid #DFDFDF; background: #F9F9F9; padding: 20px;}
+.recommendDr a{ display:block;}
+.recommendDr .askBtn{ position: inherit; margin: 20px auto 0;}
+.introduction p{ line-height:20px; font-size: 14px; color: #666666; margin-top: 15px;}
+.introduction p span{ color: #333;}
+.recommendDrBelong{ text-align:center; height: 20px; overflow: hidden;font-size: 14px; color: #333; margin-top: 15px;}
+.recommendDrBelong span{ margin-right: 8px;}
+.diseaseAskList{ padding:0 15px; border: 1px solid #DFDFDF;}
+.diseaseAskList li{ padding:20px 0; border-bottom: 1px dashed #DFDFDF;}
+.diseaseAskList li:last-child{border-bottom:0;}
+.doctorsBox{ width:68px; float: left;}
+.doctorsBox a{ display:block;}
+.doctorsImg{ width:68px; height: 68px; -webkit-border-radius: 50%; border-radius: 50%; overflow: hidden;}
+.doctorsImg img{ width:68px; height: 68px; }
+.doctorsName{ text-align: center; font-size: 16px; color: #333; line-height: 1; margin-top: 20px;}
+.doctorsInfo{ margin-left: 83px;}
+.question{ height: 20px;}
+.question a{ float: left;line-height: 20px; font-size:18px; font-weight: bolder; color: #333;}
+.question a:hover{ color:#02C3F0;}
+.answer{ line-height:20px; height: 40px; overflow: hidden; margin-top: 10px;}
+.answer .a{ font-size: 14px; color: #666;}
+.viewNum{height:16px;  margin-top: 18px; }
+.viewNumLeft{ height:16px; line-height: 16px; font-size: 0;float: left;}
+.viewNumLeft i,.viewNumLeft span{ display:inline-block; vertical-align: middle;}
+.viewNumLeft i{ background-position:-45px -48px; width: 15px; height: 11px;}
+.viewNumLeft span{ font-size: 12px; color: #999; margin-left: 10px;}
+/*专家问答*/
+.answerLeft{ float:left; width:897px;}
+.viewNumRight{ float:right; height: 20px;}
+.viewNumRight a{ display:block; font-size: 0; line-height: 20px;}
+.viewNumRight a i,.viewNumRight a span{ display:inline-block; vertical-align: middle;}
+.viewNumRight a i{background-position:-49px -82px; width: 20px; height: 20px;}
+.viewNumRight a span{ font-size:14px; color: #0EA7E6 ; margin-left: 10px;}
+.pageTurning{ height:40px; font-size: 0; text-align: right; border-right: 1px solid #DFDFDF; margin-top: 30px;}
+.pageTurning a,.pageTurning span{ display: inline-block; font-size: 14px; text-align: center; height: 38px; line-height: 38px; border-bottom: 1px solid #DFDFDF; border-top: 1px solid #DFDFDF; border-left: 1px solid #DFDFDF;}
+.pageTurning .pageNum{ color:#666; background: #fff; width:38px; height: 38px;}
+.pageTurning .pageNum.cur{ color:#fff; background: #26AFE8;}
+.pageTurning .sides{ padding: 0 20px; color:#333; background: #F9F9F9;  height: 38px;}
+.pageTurning .pageBtn{ width: 88px; color:#333; background: #fff;  height: 38px;}
+.pageTurning .pageBtn.theEnd{ color:#999;}
+.pageTurning .pageBtn.theEndMore{ color:#999;width: 38px;}
+
+.questionRight{  font-size: 0; line-height: 24px; height: 24px; margin-top: 10px;}
+.questionRight i{ width:5px; height: 5px; -webkit-border-radius: 50%; border-radius: 50%; background:#D8D8D8;}
+.questionRight span{ font-size:12px; color: #333; margin-right: 10px;}
+.questionRight em{ font-style:normal; color: #01A2E5; font-size: 14px; height: 22px; line-height: 22px; padding: 0 5px; border: 1px solid #01A2E5; -webkit-border-radius: 3px; border-radius: 3px;}
+
+
+.recommendDr .swiper-container{ width:100%; float: none; height: auto;}
+.recommendDr .swiper-button-prev{ background-image: url(../img/pubIcon.png) no-repeat !important; background-position: -33px -159px; background-size: 200px 200px; width: 41px; height: 41px; left: 0; top: 80px; z-index: 1000;}
+.recommendDr .swiper-button-next{ background-image:  url(../img/pubIcon.png) no-repeat !important; background-position: -80px -159px; background-size: 200px 200px; width: 41px; height: 41px; right: 0;top: 80px; z-index: 1000;}
+.drIndexLeft{ width:897px; float: left;}
+.drIndexLeft .filterTab{ border-bottom: 0;}
+.drIndexLeft .filterTab span{ width:150px;}
+.drIndexLeft .filterTabBox{ margin-top:0;}
+.drIndexLeft .tabInfoItem{ background:#fff; padding: 0;}
+.drInfoBox{ background:#F3FCFF; width: 204px; height: 496px; float: left;}
+.drInfoBox .fDoctorName span{ margin-right: 0;}
+.drInfoBox .fDoctorTx{ margin:40px auto 0;}
+.articleList{ width:100%; height:40px; margin-top: 20px;}
+.article-item{ float:left; height: 40px; width: 33%; border-right: 1px dashed #DFDFDF;}
+.article-item:last-child{ border-right: 0;}
+.article-item a{ display:block;}
+.article-item p{ text-align: center;}
+.article-item p.top{ font-size:14px; color:#999;  line-height: 1;}
+.article-item p.num{ font-size:14px; color:#3CB7EA ;  line-height: 1; margin-top:12px; }
+.drInfoRight{margin-left: 234px; padding-top: 10px;}
+.drInfo{ width:100%;}
+.drInfo-item{ margin-top: 20px;overflow: hidden;}
+.drInfo-item span{ float:left; width:60px; font-size: 14px; color:#999; line-height: 20px;}
+.drInfo-item p{ margin-left:75px; font-size: 14px; color: #333; line-height: 20px;}
+.drInfoTable{ width:500px; margin-top: 20px;}
+.drInfoTable table{ border-top:1px solid #DFDFDF; border-left:1px solid #DFDFDF; margin-top: 10px;}
+.drInfoTable table td{ width: 62px; text-align: center; font-size: 14px; color: #999; border-bottom:1px solid #DFDFDF; border-right:1px solid #DFDFDF; height: 60px;}
+.visiting{ width:100%; height: 100%; line-height: 60px; background: #F3FCFF; color: #0EA7E6; position: relative;}
+.visiting i{ background-position: -40px -63px; width:15px; height: 10px; position: absolute; display: block; bottom: 5px; right: 3px;}
+.drIndexRight{ width:289px; float: right; padding-top: 13px;}
+.sameDepBox{ border:1px solid #DFDFDF; padding: 0 15px; background: #fff;}
+.same-item{display:block; padding: 15px 0; border-bottom: 1px dotted #DFDFDF;}
+.same-item:last-child{ border-bottom:0;}
+.same-item .pic{ width:30px; height: 30px; float:left; -webkit-border-radius: 50%; border-radius: 50%; overflow: hidden;}
+.same-item .pic img{ width:30px; height: 30px;}
+.same-item .sameRight{ margin-left:45px;}
+.same-item .sameRight .sameTitle{ line-height: 30px; font-size: 14px; color: #999;}
+.same-item .sameRight .sameText{ font-size:14px; color: #666; line-height: 20px; margin-top: 5px;}
+.articleWrap .diseaseAskList{ border:0; padding: 0 20px;}
+.articleWrap .diseaseAskList li .doctorsInfo{margin-left:0;}
+
+.answerWrap .diseaseAskList{ border:0; padding: 0 20px;}
+.answerWrap .diseaseAskList li .doctorsInfo{margin-left:0;}
+.answerWrap .question i{ background-position: -24px -80px; width: 20px; height: 20px; float: left; display: block;}
+.answerWrap .question a{ float:none; margin-left: 30px; display: block;}
+.answerWrap .answer{margin-top:15px;}
+.answerWrap .answer i{ background-position: 0 -80px; width: 20px; height: 20px; float: left; display: block;}
+.answerWrap .answer a{  margin-left: 30px; display: block;}
+.answerWrap .viewNum{ margin-left:30px;}
+.evaluation{ padding:0 15px;}
+.evaluation li{ padding:15px 0; border-bottom: 1px dotted #DFDFDF;}
+.evaluation li:last-child{border-bottom: 0;}
+.netizen{height: 25px; padding-left: 10px;}
+.netizen .netizenTx{ width:25px; height: 25px; -webkit-border-radius: 50%; border-radius: 50%; overflow: hidden; float: left}
+.netizen .netizenTx img{width:25px; height: 25px;}
+.netizen .netizenName{ line-height: 25px; margin-left: 35px; font-size: 14px; color: #666;}
+.scoreBox{ height: 16px; padding-left: 10px; margin: 15px 0;}
+.scoreXing{ height: 16px; float: left;}
+.scoreXing i{ display:inline-block; width: 17px; height: 16px; margin-right: 5px; background-position:0 -147px;}
+.score{ float:left; font-size: 14px; color: #666; line-height: 16px; margin-left: 5px;}
+.scoreTime{ float:right; font-size: 12px; color: #999; line-height: 16px;}
+.scoreText{padding-left: 10px; line-height: 20px; color: #333; font-size: 14px;}
+
+/*科普文章*/
+.writingsBox{ margin-top:20px; position: relative;}
+.writingsBox .recommendDr{ float:left; width: 247px;}
+.writingsMidBox{ float:left; border:1px solid #DFDFDF; width: 552px; padding: 20px; margin-left: 15px;}
+.writingsTitle{ font-size:20px; color: #333; font-weight: bolder; text-align: center; line-height: 40px;}
+.writingsInfo{ height:16px; line-height: 16px; font-size: 0; text-align: center; color: #999; margin-top: 5px;}
+.writingsInfo span,.writingsInfo i,.writingsInfo em{ display:inline-block;vertical-align: middle; font-size: 12px;}
+.writingsInfo i{ background-position: -45px -48px; width: 15px; height: 11px; margin-right: 8px;}
+.writingsInfo em{ font-style:normal; margin: 0 10px; font-family: "宋体";}
+.writingsText{ width:100%; margin-top: 20px;}
+.writingsText p{ line-height:28px; font-size: 14px; color: #333; text-indent: 2em;}
+.writingsText h3{ color:#151515; font-size: 14px;  font-weight: normal;line-height: 28px;text-indent: 2em; margin-top: 28px;}
+.newsContent img{max-width: 90%;height: auto;}
+
+.writingsBox .drIndexRight{ padding-top:0; width: 289px;}
+.writingsNav{ margin-top: 20px;}
+.writingsNav p{line-height: 26px;}
+.writingsNav p a,.writingsNav p span{ color:#999; font-size: 14px;}
+.writingsNav p a:hover{ color:#02C3F0;}
+.sameName{ font-size:18px; font-weight: bolder; line-height: 30px; color: #333;}
+.sameName:hover{ color:#02C3F0;}
+.writingsBox .same-item .sameRight .sameTitle{ line-height:16px; margin-top: 5px;}
+.writingsBox .writingsInfo{ text-align:left; margin-top: 15px;}
+.writingsBox .writingsInfo em{ margin:0 5px;}
+.fixBox{ position:fixed; top: 0;}
+.fixedBox{ float: right; width: 289px; position: relative;}
+/*咨询*/
+.advisory{ height:540px; margin-top: 20px;}
+.advisoryLeft{ width:855px; border:1px solid #DFDFDF; height: 508px; padding: 15px 20px; float: left;}
+.addSuccess{display: none}
+
+.advisoryTitle{ height:35px; background: #FFFBF3; line-height: 35px; font-size: 12px; color: #FF6600; text-align: center;}
+.advisoryForm{ width:100%;}
+.form-item{ width:100%; margin-top: 15px;}
+.form-item span.title{ font-size:14px; color: #666; height: 40px; float: left; line-height: 40px; width: 100px; text-align: right;}
+.form-item span.title em{ color:#FF0000; font-style: normal; position: relative; top: 3px; margin-right: 3px;}
+.form-item .advisoryInput{ margin-left: 110px; font-size: 0;}
+.form-item .advisoryInput .pubInput{ height:38px; line-height: 38px; color: #333; font-size: 14px; padding-left: 10px; border: 1px solid #DFDFDF;}
+.form-1{ width:364px;}
+.form-item .advisoryInput .form-2{ font-family:PingFangSC-Regular,Microsoft YaHei; line-height: 18px;  font-size: 14px; color: #333; border: 1px solid #DFDFDF; width:705px; height: 66px; padding: 5px 10px; resize: none;}
+.form-3{ width:74px;}
+.form-4{ width:206px; float: left;}
+.form-item .advisoryInput label,.form-item .advisoryInput label input,.form-item .advisoryInput label span{display:inline-block; vertical-align: middle;}
+.form-item .advisoryInput label{ line-height: 40px; margin-right: 20px;}
+.form-item .advisoryInput label span{ font-size:14px; color: #333; margin-left: 5px;}
+.yzm{ float: left; height: 40px; cursor: pointer;}
+.changeBtn{ float: left; display: block; line-height: 40px; color: #07B3F8;font-size: 14px; margin-left: 20px; cursor: pointer;}
+.sibMit{ background:-webkit-linear-gradient(left,#02CFF4,#3992F8); background:linear-gradient(left,#02CFF4,#3992F8); height: 50px; width: 290px; margin: 70px auto 0;line-height: 50px; text-align: center; color: #fff; font-size: 16px; -webkit-border-radius: 8px; border-radius: 8px; cursor: pointer;}
+.advisoryRight{ width:247px; border: 1px solid #DFDFDF; height: 518px; float: right; background: #F3FCFF; padding: 20px 20px 0 20px;}
+.advisoryRightTitle{ font-size:24px; color: #333; line-height: 1;}
+.process{ margin-top: 30px;}
+.processItem{ padding-left: 33px; padding-bottom: 50px; margin-left: 17px; position: relative;}
+.processItem i{ display:block; width: 33px; height: 33px; border:2px solid #07C9F4; background: #F3FCFF; -webkit-border-radius: 50%; border-radius: 50%; text-align: center; line-height: 33px; color: #07C9F4; font-size: 16px; font-style: normal; position: absolute; left: -18px; top: 0; z-index: 11;}
+.processItem .txt{ color:#666; font-size: 14px; line-height: 20px; padding-top: 7px;}
+.processItem em{ display:block; width: 1px; height: 100%; position: absolute; left: 0; top: 0; z-index: 10; border-left:1px dotted #07C9F4; }
+.processItem s{  background-position: -117px -22px; position: absolute; top: 50px; left: -8px; width: 17px; height: 17px; display: block; z-index: 11;}
+.promiseList{width: 100%;}
+.promiseItem{ font-size:0; height: 32px; line-height: 32px; margin-top: 30px;}
+.promiseItem i,.promiseItem span{ display:inline-block; vertical-align: middle;}
+.promiseItem .promise-1{ background-position: 0 -106px; width: 31px; height: 31px;}
+.promiseItem .promise-2{ background-position: -34px -107px; width: 31px; height: 30px;}
+.promiseItem .promise-3{ background-position: -67px -106px; width: 31px; height: 30px;}
+.promiseItem span{ font-size:20px; color: #0EA7E6; margin-left: 20px;}
+
+.answerInfoLeft{ float:left; width: 897px;}
+.answerInfoTop{ padding-left:20px; border: 1px solid #DFDFDF;}
+.answerInfoTopTitleBox{ padding: 20px 0; border-bottom: 1px solid #DFDFDF;}
+.answerInfoTopTitle{ font-size:0; height: 30px; line-height: 30px;}
+.answerInfoTopTitle i,.answerInfoTopTitle span{ display:inline-block; vertical-align: middle;}
+.answerInfoTopTitle i{ background:#f5a623; -webkit-border-radius: 50%; border-radius: 50%; width: 30px; height: 30px; text-align: center; line-height: 28px; font-size: 16px; color: #fff; font-style: normal;}
+.answerInfoTopTitle span{ font-size:18px; color: #333; font-weight: bolder; margin-left: 10px;}
+.answerInfoTopAge{ height: 20px; padding-left: 40px; margin-top: 15px;}
+.answerInfoTopAge p{ float:left; color: #0EA7E6;line-height: 20px;}
+.answerInfoTopAge .viewNumLeft{ margin-left:20px; line-height: 20px; height: 20px;}
+.description{ padding:20px 0 20px 40px;}
+.descriptionText{ font-size:14px; color: #999; line-height: 1;}
+.descriptionSubTit{  font-size:14px; color: #333; line-height: 20px; margin-top: 10px;}
+.answerInfoBottom{ border:1px solid #DFDFDF; margin-top: 10px; padding: 20px;}
+.answerInfoBottomDrBox{ height:68px;}
+.answerInfoBottomDrTx{ width:68px; height: 68px; float: left;}
+.answerInfoBottomDrTx img{ width:68px; height: 68px;}
+.answerInfoBottomDrRight{ margin-left:83px; height: 68px;}
+.answerInfoBottomDrName{  height: 38px;}
+.answerInfoBottomDrName span{ font-size:18px; color: #333; display: inline-block; line-height: 38px;}
+.answerInfoBottomDrName em{ background:#EBFBFF; font-style: normal; font-size: 12px; color: #08AEF8; height: 24px; line-height: 24px; -webkit-border-radius: 12px 12px 12px 12px; border-radius: 12px 12px 12px 12px; display: inline-block; margin-left: 10px; padding: 0 5px;}
+.answerInfoBottomDrHos{ height:30px;}
+.answerInfoBottomDrHos p{ float:left; font-size: 14px; color: #333; line-height: 30px;}
+.answerInfoBottomDrHos a{ display:block; float:right; height: 30px; font-size: 0; line-height: 30px;}
+.answerInfoBottomDrHos a i,.answerInfoBottomDrHos a span{ display:inline-block; vertical-align: middle;}
+.answerInfoBottomDrHos a i{ background-position: -49px -82px;  width: 16px; height: 16px;}
+.answerInfoBottomDrHos a span{ font-size:14px; color: #0EA7E6; margin-left: 10px;}
+.answerInfoBottomTextBox{ background:#F9F9F9; padding: 20px; margin-top: 20px;}
+
+.answerInfoBottomTextBox div.pubIcon {
+    float: left;
+    background: #0ea7e6;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 28px;
+    font-size: 16px;
+    color: #fff;
+    font-style: normal;
+}
+
+.answerInfoBottomTextWrap{ margin-left: 45px;}
+.answerInfoBottomText{ font-size:14px; color: #666; line-height: 20px;}
+.answerInfoBottomTextWrap .viewNumLeft{ float:none; margin-top: 15px;}
+.statement{ text-align:right; font-size: 12px; color: #999; line-height: 20px; margin-top: 10px;}
+.sucBox{ padding-top:100px;}
+.sucIcon{ background:url(../img/suc.png) no-repeat; width: 72px; height: 72px; display: block; margin: 0 auto;}
+.sucTilte{ line-height:1; font-size: 24px; color: #333; text-align: center; margin-top: 30px;}
+.sucText{ text-align: center; font-size: 14px; color: #666; line-height: 1; margin-top: 20px;}
+
+/* 联系我们 */
+.contactus_container {
+    width: 1200px;
+    padding: 0;
+    margin: 0 auto;
+}
+.contact_pic1{background: url(../images/contact_pic1.png) no-repeat;width: 21px;height: 19px;display:block;margin-top:1px;float: left;margin-right: 9px;}
+.contact_pic2{background: url(../images/contact_pic2.png) no-repeat;width: 21px;height: 19px;display:block;margin-top:1px;float: left;margin-right: 9px;}
+.contact_bg{}
+.breadcrumb{color: #a6a8b5;height: 43px; line-height: 43px;border-bottom: solid 1px #eee;margin-top:3px;}
+.breadcrumb a{color: #38455d;}
+.bdn{ border:none !important;}
+.fs32{font-size: 32px;font-weight: 200;}
+.fs16{font-size: 16px;}
+.fc999{color: #999;}
+.fc666{color: #666;}
+.lh24{line-height: 24px;}
+.fc2579dc{color: #2579dc;}
+.fc333{color: #333333;}
+.fcb3b3{color:#b3b3b3;}
+.mt40{margin-top: 40px;}
+.mt30{margin-top: 30px;}
+.doctorsTitle{ height:24px; line-height: 24px; background: #EBFBFF; padding: 0 4px; font-size: 12px; color: #08AEF8; -webkit-border-radius: 12px 12px 12px 12px; border-radius:  12px 12px 12px 12px; margin: 10px auto 0;}
+.contactus_container .contactus_p{color: #666;line-height: 24px;font-size: 14px;margin-left: 30px;margin-top: 25px;}

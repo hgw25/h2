@@ -1,0 +1,526 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.4.11/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="">
+        </div>
+    </header>
+
+    <div class="main" id="app">
+        <div class="line-title">添加产品</div>
+        <div class="line-product-all">
+            <div class="line-item">
+                <div class="line-item-title">产品状态</div>
+                <div class="line-item-input1">
+                    <select class="input-img">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="opel">Opel</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </div>
+                <div class="line-item-title">产品名称</div>
+                <div class="line-item-input2">
+                    <input type="text">
+                </div>
+            </div>
+            <div class="line-item">
+                <div class="line-item-title">佣金(约)</div>
+                <div class="line-item-input2">
+                    <input type="text"> 
+                </div>
+                <span>万</span>
+                <div class="checkout-all">
+                    <span class="line-checkout"><el-checkbox v-model="checked">付费</el-checkbox></span>
+                    <span class="line-checkout"><el-checkbox v-model="checked">可仪</el-checkbox></span>
+                    <span class="line-checkout"><el-checkbox v-model="checked">不付</el-checkbox></span>
+                </div>   
+            </div>
+            <div class="line-item">
+                <div class="line-item-title left-title">发起机构全称</div>
+                <div class="line-item-input3">
+                    <input type="text"> 
+                </div>
+                <div class="checkout-all">
+                    <span class="line-checkout"><el-checkbox v-model="checked1">付费</el-checkbox></span>
+                    <span class="line-checkout"><el-checkbox v-model="checked1">可仪</el-checkbox></span>
+                </div>   
+            </div>
+            <div class="line-item">
+                <div class="line-item-title">交易场所</div>
+                <div class="line-item-input4">
+                    <select>
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="opel">Opel</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </div>
+                <div class="line-item-title">产品类型</div>
+                <div class="line-item-input4">
+                    <select>
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="opel">Opel</option>
+                        <option value="audi">Audi</option>
+                    </select>
+            </div>
+                <div class="line-item-title">底层类型</div>
+                <div class="line-item-input4">
+                        <select>
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="opel">Opel</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                </div>   
+            </div>
+            <div class="line-item">
+                    <div class="line-item-title">管理人简称</div>
+                    <div class="line-item-input4">
+                        <input type="text">
+                    </div>
+                    <div class="line-item-title">牵头主承简称</div>
+                    <div class="line-item-input4">
+                        <input type="text">
+                   </div>
+                    <div class="line-item-title">联席主承简称</div>
+                    <div class="line-item-input4">
+                        <input type="text">
+                    </div>   
+            </div>
+            <div class="line-item">
+                    <div class="line-item-title">总规模</div>
+                    <div class="line-item-input4">
+                        <input type="text">
+                    </div>
+                    <div>亿</div>
+                    <div class="line-item-title2">币种</div>
+                    <div class="line-item-input4">
+                        <input type="text">
+                    </div>
+                    <div class="line-item-title">技息天数</div>
+                    <div class="line-item-input4">
+                        <input type="text">
+                    </div>
+            </div>
+            <div class="line-item">
+                    <div class="line-item-title">面值</div>
+                    <div class="line-item-input4">
+                        <input type="text">
+                    </div>
+                    <div>亿</div>
+                    <div class="line-item-title2">薄记日</div>
+                    <div class="line-item-input4">
+                        <input type="text" value="最早">
+                    </div>
+                    <div class="line-item-blank">~</div>
+                    <div class="line-item-input4">
+                        <input type="text" value="最晚">
+                    </div> 
+                    <span class="line-checkout span-left"><el-checkbox v-model="checked">付费</el-checkbox></span>  
+            </div>
+            <div class="line-item">
+                    <div class="line-item-title">交割日</div>
+                    <div class="line-item-input4">
+                        <input type="text">
+                    </div>
+                    <div class="line-item-title">起息日</div>
+                    <div class="line-item-input4">
+                        <input type="text">
+                   </div>
+                    <div class="line-item-title">上市日</div>
+                    <div class="line-item-input4">
+                        <input type="text">
+                    </div>   
+            </div>
+            <div class="line-item">
+                    <div class="line-item-title">首次偿付日</div>
+                    <div class="line-item-input4">
+                        <input type="text">
+                    </div>
+                    <div class="line-item-title">当前偿付日</div>
+                    <div class="line-item-input4">
+                        <input type="text">
+                   </div>
+                    <div class="line-item-title">下次偿付日</div>
+                    <div class="line-item-input4">
+                        <input type="text">
+                    </div>   
+            </div>
+        </div>    
+        <div class="line-title">原始分档信息</div>
+        <div class="line-grad">
+            <span class="grad-line1">分档情况</span>
+            <span class="grad-line1">证券简称</span>
+            <span class="grad-line1">证券简称</span>
+            <span class="grad-line2">原始评级</span>
+            <span class="grad-line2">原始占比(%)</span>
+            <span class="grad-line2">发行规模(亿)</span>
+            <span class="grad-line3">预计到期日</span>
+            <span class="grad-line4">加权期限</span>
+            <span class="grad-line2">询价区间(%)</span>
+            <span class="grad-line1">计息方式</span>
+            <span class="grad-line1">付费频率</span>
+            <span class="grad-line1">还本方式</span>
+        </div>
+        <div class="table-grad">
+            <div class="grad-line1">
+                <input type="text">
+            </div>
+            <div class="grad-line1">
+                <input type="text">
+            </div>
+            <div class="grad-line1">
+                <input type="text">
+            </div>
+            <div class="grad-line2">
+                <div>
+                    <div class="grad-line-flex flex-line1">
+                        <input class="grad-item-input item-input1" type="text">
+                        <input class="grad-item-input" type="text">
+                    </div>
+                    <div class="grad-line-flex">
+                        <input class="grad-item-input item-input1" type="text">
+                        <input class="grad-item-input" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="grad-line2">
+                <input type="text">
+            </div>
+            <div class="grad-line2">
+                <input type="text">
+            </div>
+            <div class="grad-line3">
+                <input type="text">
+            </div>
+            <div class="grad-line4">
+                <input type="text">
+            </div>
+            <div class="grad-line2">
+                <input type="text">
+            </div>
+            <div class="grad-line1">
+                <input type="text" value="-">
+            </div>
+            <div class="grad-line1">
+                <input type="text" value="-">
+            </div>
+            <div class="grad-line1">
+                <input type="text" value="-">
+            </div>
+            <div class="grad-line5">
+                <img src="images/delete.png" alt="">
+            </div>
+        </div>
+        <div class="table-grad">
+            <div class="grad-line1">
+                <input type="text">
+            </div>
+            <div class="grad-line1">
+                <input type="text">
+            </div>
+            <div class="grad-line1">
+                <input type="text">
+            </div>
+            <div class="grad-line2">
+                <div>
+                    <div class="grad-line-flex flex-line1">
+                        <input class="grad-item-input item-input1" type="text">
+                        <input class="grad-item-input" type="text">
+                    </div>
+                    <div class="grad-line-flex">
+                        <input class="grad-item-input item-input1" type="text">
+                        <input class="grad-item-input" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="grad-line2">
+                <input type="text">
+            </div>
+            <div class="grad-line2">
+                <input type="text">
+            </div>
+            <div class="grad-line3">
+                <input type="text">
+            </div>
+            <div class="grad-line4">
+                <input type="text">
+            </div>
+            <div class="grad-line2">
+                <input type="text">
+            </div>
+            <div class="grad-line1">
+                <input type="text" value="-">
+            </div>
+            <div class="grad-line1">
+                <input type="text" value="-">
+            </div>
+            <div class="grad-line1">
+                <input type="text" value="-">
+            </div>
+            <div class="grad-line5">
+                <img src="images/delete.png" alt="">
+            </div>
+        </div>
+        <div class="add-img">
+            <img style="vertical-align: sub" src="images/add-icon.png">
+            添加新列</div>
+        <div class="title-block">
+            <div class="title-name">产品特征</div>
+        </div>
+        <div class="features flex-features">
+            <div>
+                <span class="features-title">条线类型:</span>
+            </div>
+            <div>
+                <span class="features-type">底层分散</span>
+                <span class="features-type">非循环购买</span>
+                <span class="features-normal">到期还本</span>
+                <span class="features-normal">到期还本</span>
+                <span class="features-normal">到期还本</span>
+                <span class="features-normal">到期还本</span>
+                <span class="features-normal">到期还本</span>
+                <span class="features-normal">到期还本</span>
+                <span class="features-normal">到期还本</span>
+                <span class="features-normal">到期还本</span>
+            </div>
+        </div>
+        <div class="features-note">
+            <div class="features-note-title">备注:</div>
+            <div class="features-note-content">
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+        <div class="features-download">
+            <img src="images/download.png" alt="">
+            下载发行材料
+        </div>
+        <div class="features-line">
+            <div class="features-line-info">
+                <img src="images/shape.png" alt="">
+                华谊兄弟2016年第一期信贷资产支持证券发行说明书     
+            </div>
+            <div class="features-line-info">
+                <img src="images/shape.png" alt="">
+                华谊兄弟2016年第一期信贷资产支持证券发行说明书     
+            </div>
+            <div class="features-line-info">
+                <img src="images/shape.png" alt="">
+                华谊兄弟2016年第一期信贷资产支持证券发行说明书     
+            </div>
+        </div>
+        <div class="abs-block">
+            <div class="abs-block-title">ABS</div>
+            <div class="flex-space">
+                <div class="space-title">姓名</div>
+                <div class="space-select">
+                    <select class="input-img">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="opel">Opel</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="line-title">卖方业务对接人</div>
+        <div class="person-info line-info line-table">
+            <div class="person-info-item">
+                <div class="person-info-content">
+                    <div class="item-title">姓名</div>
+                    <div>
+                        <select class="input-img">
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="opel">Opel</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                        <img class="img-add" src="images/add.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="person-info-item">
+                <div class="person-info-content">
+                    <div class="item-title">客户类型</div>
+                    <div>
+                        <input type="text" value="龙淼">
+                    </div>
+                </div>
+            </div>
+            <div class="person-info-item">
+                <div class="person-info-content">
+                    <div class="item-title">公司全称</div>
+                    <div>
+                        <input type="text" value="金融市场部">
+                    </div>
+                </div>
+            </div>
+            <div class="person-info-item">
+                <div class="person-info-content">
+                    <div class="item-title">公司简称</div>
+                    <div>
+                        <input type="text" value="主管">
+                    </div>
+                </div>
+            </div>
+            <div class="person-info-item">
+                <div class="person-info-content">
+                    <div class="item-title">总/分/支</div>
+                    <div>
+                        <input type="text" value="123456">
+                    </div>
+                </div>
+            </div>
+            <div class="person-info-item">
+                <div class="person-info-content">
+                    <div class="item-title">条线</div>
+                    <div>
+                        <input type="text" value="123456">
+                    </div>
+                </div>
+            </div>
+            <div class="person-info-item">
+                <div class="person-info-content">
+                    <div class="item-title">部门</div>
+                    <div>
+                        <input type="text" value="12113456">
+                    </div>
+                </div>
+            </div>
+            <div class="person-info-item">
+                <div class="person-info-content">
+                    <div class="item-title">职位</div>
+                    <div>
+                        <input type="text" value="021-1234567">
+                    </div>
+                </div>
+            </div>
+            <div class="person-info-item">
+                <div class="person-info-content">
+                    <div class="item-title">QQ</div>
+                    <div>
+                        <input type="text" value="1212">
+                    </div>
+                </div>
+            </div>
+            <div class="person-info-item">
+                <div class="person-info-content">
+                    <div class="item-title">座机</div>
+                    <div>
+                        <input type="text" value="021-1231231">
+                    </div>
+                </div>
+            </div>
+            <div class="person-info-item">
+                <div class="person-info-content">
+                    <div class="item-title">手机</div>
+                    <div>
+                        <input type="text" value="1231231231">
+                    </div>
+                </div>
+            </div>
+            <div class="person-info-item">
+                <div class="person-info-content">
+                    <div class="item-title">传真</div>
+                    <div>
+                        <input type="text" value="1231231231">
+                    </div>
+                </div>
+            </div>
+            <div class="person-info-item">
+                <div class="person-info-content">
+                    <div class="item-title">邮箱</div>
+                    <div>
+                        <input type="text" value="liufei@bankofchina.com.cn">
+                    </div>
+                </div>
+            </div>
+            <div class="person-info-item">
+                <div class="person-info-content">
+                    <div class="item-title">地址</div>
+                    <div>
+                        <input type="text" value="北京市宣武门大街1号">
+                    </div>
+                </div>
+            </div>
+            <div class="person-info-content">
+                <div class="item-title text-middle">ABS-Broker</div>
+                <div>
+                    <select>
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="opel">Opel</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    <div class="line-title">卖方业务对接人</div>
+    <div class="investment-block">
+        <div class="investment-block-title">交易场所:</div>
+        <div>
+            <span class="investment-item checkout">全部</span>
+            <span class="investment-item">银行商</span>
+            <span class="investment-item">银行商</span>
+            <span class="investment-item">银行商</span>
+            <span class="investment-item">银行商</span>
+            <span class="investment-item">银行商</span>
+            <span class="investment-item">银行商</span>
+            <span class="investment-item">银行商</span>
+        </div>
+    </div>
+    <div class="investment-block">
+        <div class="investment-block-title">交易场所:</div>
+        <div>
+            <span class="investment-item checkout">全部</span>
+            <span class="investment-item">银行商</span>
+            <span class="investment-item">银行商</span>
+            <span class="investment-item">银行商</span>
+            <span class="investment-item">银行商</span>
+            <span class="investment-item">银行商</span>
+            <span class="investment-item">银行商</span>
+            <span class="investment-item">银行商</span>
+        </div>
+        </div>
+        <div class="flex-btn top-btn">
+            <div class="save-btn"></div>
+            <div class="save-btn save-text">保存</div>
+        </div>
+    </div>
+</body>
+    <!-- import Vue before Element -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+        var Main = {
+        data() {
+            return {
+                checked: true,
+                checked1: false
+            }
+        },
+        methods: {
+            onSubmit() {
+                console.log('submit!');
+                }
+            }
+        }
+        var Ctor = Vue.extend(Main)
+        new Ctor().$mount('#app')
+    </script>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta content="telephone=no" name="format-detection">
+  <title>文章详情</title>
+  <script>
+    (function (win) {
+      var remCalc = {};
+      var docEl = win.document.documentElement,
+        tid,
+        hasRem = true,
+        hasZoom = true,
+        zoomRuler = 'width',
+        designWidth = 750,
+        designHeight = 1206;
+
+      function refresh() {
+        var width = docEl.clientWidth;
+        var height = docEl.clientHeight;
+        if (width > 768) width = 768;
+        if (hasRem) {
+          var rem = width / 10;
+          docEl.style.fontSize = rem + "px";
+          remCalc.rem = rem;
+          var actualSize = parseFloat(window.getComputedStyle(document.documentElement)["font-size"]);
+          if (actualSize !== rem && actualSize > 0 && Math.abs(actualSize - rem) > 1) {
+            var remScaled = rem * rem / actualSize;
+            docEl.style.fontSize = remScaled + "px";
+          }
+        }
+        if (hasZoom) {
+          var style = document.getElementById('J__style');
+          if (!style) {
+            style = document.createElement('style');
+            style.id = 'J__style';
+          }
+          var r, s;
+          if (zoomRuler === 'height') {
+            r = height / designHeight;
+          } else {
+            r = width / designWidth;
+          }
+          r.toFixed && (r = r.toFixed(5));
+          s = '.__z{zoom:' + r + '} ';
+          s += '.__s{-webkit-transform: scale(' + r + ');transform: scale(' + r + ')}';
+
+          style.innerHTML = s;
+          document.getElementsByTagName('head')[0].appendChild(style);
+        }
+      }
+
+      function dbcRefresh() {
+        clearTimeout(tid);
+        tid = setTimeout(refresh, 100)
+      }
+
+      win.addEventListener("resize", function () {
+        dbcRefresh()
+      }, false);
+
+      win.addEventListener("pageshow", function (e) {
+        if (e.persisted) {
+          dbcRefresh();
+        }
+      }, false);
+      refresh();
+      if (hasRem) {
+        remCalc.refresh = refresh;
+        remCalc.rem2px = function (d) {
+          var val = parseFloat(d) * this.rem;
+          if (typeof d === "string" && d.match(/rem$/)) {
+            val += "px";
+          }
+          return val;
+        };
+        remCalc.px2rem = function (d) {
+          var val = parseFloat(d) / this.rem;
+          if (typeof d === "string" && d.match(/px$/)) {
+            val += "rem";
+          }
+          return val;
+        };
+        win.remCalc = remCalc;
+      }
+    })(window);
+  </script>
+  <link rel="stylesheet" href="./common.css">
+  <style>
+    .section-title {
+      color: #999999;
+      font-size: 0.373rem;
+      padding: 0.4rem 0.4rem 0.2rem;
+    }
+
+    /****** 文章详情 ******/
+    .article-details {
+      background-color: #fff;
+    }
+
+    .article-details .article-title {
+      padding: 0.267rem 0.4rem;
+    }
+
+    .article-details .article-title h3 {
+      font-size: 0.48rem;
+    }
+
+    .article-details .article-status {
+      color: #999999;
+      font-size: 0.24rem;
+      margin-top:  0.267rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .article-details .article-status .view-number img {
+      width: 0.32rem;
+      height: 0.226rem;
+    }
+
+    .article-details .author-info {
+      padding-bottom: 0.267rem;
+      display: flex;
+    }
+
+    .article-details .author-info > img {
+      width: 1.067rem;
+      height: 1.067rem;
+      margin-right: 0.267rem;
+    }
+
+    .article-details .author-info .user-name {
+      margin-bottom: 0.213rem;
+    }
+
+    .article-details .author-info .user-name span {
+      font-size: 0.347rem;
+      font-weight: 600;
+    }
+
+    .article-details .author-info .user-name .text-tag {
+      color: #08AEF8;
+      font-size: 0.267rem;
+      font-weight: normal;
+      font-style: normal;
+      padding: 0.026rem 0.16rem;
+      margin-left: 0.2rem;
+      border-radius: 0.233rem;
+      background-color: #EBFBFF;
+      display: inline-block;
+    }
+
+    .article-details .author-info .main-context span {
+      font-size: 0.32rem;
+    }
+
+    .article-details .author-info .main-context .text-label {
+      font-weight: 600;
+      margin-left: 0.267rem;
+    }
+
+    .article-details .article-content {
+      padding: 0 0.4rem 0.4rem;
+    }
+
+    .article-details .text-details p {
+      color: #666666;
+      font-size: 0.373rem;
+      line-height: 0.56rem;
+    }
+
+    .article-details .btn-group {
+      border-top: 1px solid #DDDDDD;
+      border-bottom: 1px solid #DDDDDD;
+      display: flex;
+    }
+
+    .article-details .btn-group > div {
+      flex: 1;
+      color: #999999;
+      font-size: 0.373rem;
+      text-align: center;
+      padding: 0.267rem 0;
+    }
+
+    .article-details .btn-group > div:first-child {
+      border-right: 1px solid #DDDDDD;
+    }
+
+    /****** 相关文章 ******/
+    .science-article .list-content li:first-child {
+      border-top: 1px solid #DDDDDD;
+    }
+
+    .science-article .avatar-box img {
+      width: 3.01rem;
+      border-radius: 0;
+    }
+
+    .science-article .avatar-box p {
+      font-size: 0.293rem;
+      margin-top: 0.267rem;
+      text-align: center;
+    }
+
+    .science-article .info-status {
+      justify-content: flex-end;
+    }
+
+    .science-article .info-status .update-time {
+      flex: none;
+      margin-left: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+  <div class="page-header bottom-line">
+    <div class="header-topbar-wrap">
+      <a class="go-back-link" href="javascript:history.back(-1)"><i class="icon-go-back"></i></a>
+      <div class="page-title">冠心病人吃什么好</div>
+      <div class="menu-nav">
+        <i class="icon-menu-nav"></i>
+      </div>
+      <div class="comp-entry-modal">
+        <div class="comp-shortcut-entry">
+          <ul class="entry-list">
+            <li>
+              <img src="./assets/icon_index_1.png">
+              <p>首页</p>
+            </li>
+            <li>
+              <img src="./assets/icon_doc_2.png">
+              <p>科普文章</p>
+            </li>
+            <li>
+              <img src="./assets/icon_ask_1.png">
+              <p>专家问答</p>
+            </li>
+            <li>
+              <img src="./assets/icon_baike.png">
+              <p>疾病百科</p>
+            </li>
+            <li>
+              <img src="./assets/icon_msg.png">
+              <p>我要提问</p>
+            </li>
+            <li>
+              <img src="./assets/icon_register_1.png">
+              <p>医生注册</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="article-details">
+    <div class="article-title">
+      <h3>冠心病人吃什么好</h3>
+      <div class="article-status">
+        <div class="view-number">
+          <img src="./assets/icon_view.png">
+          <span>90876人</span>
+        </div>
+        <div class="create-date">2018-09-02</div>
+      </div>
+    </div>
+    <div class="article-content">
+        <div class="author-info">
+          <img src="./assets/user_avatar_2.png">
+          <div class="user-info">
+            <div class="user-name">
+              <span>孙丽</span>
+              <i class="text-tag">主任医师</i>
+            </div>
+            <div class="main-context">
+              <span>首都医科大学宣武医院 </span>
+              <span class="text-label">妇科</span>
+            </div>
+          </div>
+        </div>
+        <div class="text-details">
+          <p>其实我们都知道，一旦得了心脏病就会严重的危机到生命。而且大部分的心脏病人都是要长期服用药物才能维持生命的。但是人们通常会因为长期服用药物而出现一系列的不适感。其实日常通过食疗也是可以得到维持的。只要平时的饮食合理就可以控制病情。
+
+            在患有心脏病的时候一定要限制进食的数量和种类。
+            心脏病人多半体重都会超重，因此应有意识地控制每日热量摄取量，减轻体重。小编建议每天的进食不能吃的很饱，以免加重胃肠道的负担，从而引发心脏病的发作。此外还应少食辛辣刺激性食物及过凉过热的食物，以免导致胃肠道受到刺激。
+            　　
+            尽量少食用高脂肪和高胆固醇食物
+            尽量减少食用油类，肥肉类食品及动物内脏等食物。过多的脂肪可以会导致肥胖证，高血脂等症状。</p>
+        </div>
+      </div>
+    <div class="btn-group">
+        <div class="prev-btn">上一篇</div>
+        <div class="next-btn">下一篇</div>
+      </div>
+  </section>
+  <section class="science-article">
+    <div class="section-title">相关内容</div>
+    <div class="section-content">
+      <div class="list-component">
+        <ul class="list-content">
+          <li>
+            <div class="avatar-box">
+              <img src="./assets/1.png">
+              <p>李红 | 主任医师 | 内科</p>
+            </div>
+            <div class="info-content">
+              <div class="info-title">如何补充钙效果最好</div>
+              <div class="info-describe">补钙是一个热门的话题，帮助人的身体补充钙的方法有很多，除了直接吃些补钙…</div>
+              <div class="info-status">
+                <div class="view-number">
+                  <img src="./assets/icon_view.png">
+                  <span>90876人</span>
+                </div>
+                <div class="update-time">2018-09-02</div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="avatar-box">
+              <img src="./assets/1.png">
+              <p>李红 | 主任医师 | 内科</p>
+            </div>
+            <div class="info-content">
+              <div class="info-title">如何补充钙效果最好</div>
+              <div class="info-describe">补钙是一个热门的话题，帮助人的身体补充钙的方法有很多，除了直接吃些补钙…</div>
+              <div class="info-status">
+                <div class="view-number">
+                  <img src="./assets/icon_view.png">
+                  <span>90876人</span>
+                </div>
+                <div class="update-time">2018-09-02</div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <div class="page-footer">
+    <div class="friendship-link">网站简介 | 友情链接 | 联系我们 | 招聘 | 免责声明</div>
+    <div class="copyright">
+      <p>特别声明：本站内容仅供参考，不作为诊断及医疗依据,请谨慎参阅，
+        本站不承担由此引起的相关责任</p>
+      <p>Copyright © 2013-2018 版权所有 未经授权请勿转载 </p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

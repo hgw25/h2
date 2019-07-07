@@ -1,0 +1,147 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.4.11/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="">
+        </div>
+    </header>
+
+    <div class="main" id="app">
+        <div class="title-block top-blank">
+            <div class="title-name">客户详情</div>
+            <div class="title-edit">
+                <img src="images/edit-icon.png" alt="">
+                编辑
+            </div>
+        </div>
+        <div class="info-block-all">
+            <div class="info-block">
+                <div class="block-item-info">
+                    <span class="span-title">姓名:</span>
+                    <span>招商银行</span>
+                </div>
+                <div class="block-item-info">
+                    <span class="span-title">条线名称:</span>:</span>
+                    <span>投行部</span>
+                </div>
+            </div>
+            <div class="info-block">
+                <div class="block-item-info">
+                    <span class="span-title">部门:</span>
+                    <span>上交所</span>
+                </div>
+                <div class="block-item-info">
+                    <span class="span-title">职位:</span>:</span>
+                    <span>企业ABS</span>
+                </div>
+            </div>
+            <div class="info-block">
+                <div class="block-item-info">
+                    <span class="span-title">QQ:</span>
+                    <span>123123</span>
+                </div>
+                <div class="block-item-info">
+                    <span class="span-title">座机:</span>:</span>
+                    <span>企业ABS</span>
+                </div>
+            </div>
+            <div class="info-block">
+                <div class="block-item-info">
+                    <span class="span-title">手机:</span>
+                    <span>上交所</span>
+                </div>
+                <div class="block-item-info">
+                    <span class="span-title">传真:</span>:</span>
+                    <span>企业ABS</span>
+                </div>
+            </div>
+            <div class="info-block">
+                <div class="block-item-info">
+                    <span class="span-title">邮箱:</span>
+                    <span>上交所</span>
+                </div>
+                <div class="block-item-info">
+                    <span class="span-title">地址:</span>:</span>
+                    <span>企业ABS</span>
+                </div>
+            </div>
+            <div class="info-block">
+                <div class="block-item-info">
+                    <span class="span-title">交易方向:</span>
+                    <span>发行</span>
+                </div>
+                <div class="block-item-info">
+                    <span class="span-title">ABS-Broker:</span>:</span>
+                    <span>石英杰,石英杰,石英杰,石英杰,</span>
+                </div>
+            </div>
+        </div> 
+        <div class="title-block top-blank">
+            <div class="title-name">营销路演(1)</div>
+        </div>
+        <div class="info-block">
+            <div class="info-block-marketing">
+                <span>营销日:</span>
+                <span>上交所</span>
+            </div>
+            <div class="info-block-marketing">
+                <span>地址:</span>
+                <span>企业ABS</span>
+            </div>
+            <div class="info-block-marketing">
+                <span>地址:</span>
+                <span>企业ABS</span>
+            </div>
+            <div class="info-block-img">
+                <img src="images/delete.png" alt="">
+            </div>
+        </div>
+        <div class="info-block">
+            <div class="info-block-marketing">
+                <span>ABS-Broker:</span>
+                <span>孙月</span>
+            </div>
+            <div class="info-block-marketing">
+                <span>其他同事:</span>
+                <span>文军</span>
+            </div>
+        </div>
+        <div class="sall-top">销售记录</div>
+        <div>
+            <div>1）目标物业资产共涉及11处物业，其中6处商业、3处办公、2处工业，分别位于上海市嘉定区、普陀区和徐汇区；物业建筑面积共计7.59万平方米，评估价值12.51亿元，</div>
+            <div>2）目标物业资产共涉及11处物业，其中6处商业、3处办公、2处工业，分别位于上海市嘉定区、普陀区和徐汇区；物业建筑面积共计7.59万平方米，评估价值12.51亿元，</div>
+        </div>
+    </div>
+</body>
+    <!-- import Vue before Element -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+        var Main = {
+        data() {
+            return {
+            }
+        },
+        methods: {
+            onSubmit() {
+                console.log('submit!');
+                }
+            }
+        }
+        var Ctor = Vue.extend(Main)
+        new Ctor().$mount('#app')
+    </script>
+</html>

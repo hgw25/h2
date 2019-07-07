@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta content="telephone=no" name="format-detection">
+  <title>医生主页</title>
+  <script>
+    (function (win) {
+      var remCalc = {};
+      var docEl = win.document.documentElement,
+        tid,
+        hasRem = true,
+        hasZoom = true,
+        zoomRuler = 'width',
+        designWidth = 750,
+        designHeight = 1206;
+
+      function refresh() {
+        var width = docEl.clientWidth;
+        var height = docEl.clientHeight;
+        if (width > 768) width = 768;
+        if (hasRem) {
+          var rem = width / 10;
+          docEl.style.fontSize = rem + "px";
+          remCalc.rem = rem;
+          var actualSize = parseFloat(window.getComputedStyle(document.documentElement)["font-size"]);
+          if (actualSize !== rem && actualSize > 0 && Math.abs(actualSize - rem) > 1) {
+            var remScaled = rem * rem / actualSize;
+            docEl.style.fontSize = remScaled + "px";
+          }
+        }
+        if (hasZoom) {
+          var style = document.getElementById('J__style');
+          if (!style) {
+            style = document.createElement('style');
+            style.id = 'J__style';
+          }
+          var r, s;
+          if (zoomRuler === 'height') {
+            r = height / designHeight;
+          } else {
+            r = width / designWidth;
+          }
+          r.toFixed && (r = r.toFixed(5));
+          s = '.__z{zoom:' + r + '} ';
+          s += '.__s{-webkit-transform: scale(' + r + ');transform: scale(' + r + ')}';
+
+          style.innerHTML = s;
+          document.getElementsByTagName('head')[0].appendChild(style);
+        }
+      }
+
+      function dbcRefresh() {
+        clearTimeout(tid);
+        tid = setTimeout(refresh, 100)
+      }
+
+      win.addEventListener("resize", function () {
+        dbcRefresh()
+      }, false);
+
+      win.addEventListener("pageshow", function (e) {
+        if (e.persisted) {
+          dbcRefresh();
+        }
+      }, false);
+      refresh();
+      if (hasRem) {
+        remCalc.refresh = refresh;
+        remCalc.rem2px = function (d) {
+          var val = parseFloat(d) * this.rem;
+          if (typeof d === "string" && d.match(/rem$/)) {
+            val += "px";
+          }
+          return val;
+        };
+        remCalc.px2rem = function (d) {
+          var val = parseFloat(d) / this.rem;
+          if (typeof d === "string" && d.match(/px$/)) {
+            val += "rem";
+          }
+          return val;
+        };
+        win.remCalc = remCalc;
+      }
+    })(window);
+  </script>
+  <link rel="stylesheet" href="./common.css">
+  <style>
+    .page-wrap {
+      padding: 0;
+    }
+
+    .home-panel {
+      position: relative;
+      min-height: 6.666rem;
+      overflow: hidden;
+    }
+
+    .bg-circular {
+      height: 6.2rem;
+      margin: 0 -5%;
+      border-radius: 0 0 50% 50%;
+      background-image: linear-gradient(-135deg, #3695F8 16%, #0DC3F5 100%);
+    }
+
+    .top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding-top: 0.373rem;
+    }
+
+    .top-bar .icon-go-back {
+      position: absolute;
+      top: 0.4rem;
+      left: 0.4rem;
+      width: 0.253rem;
+      height: 0.533rem;
+      background: url(./assets/icon_go_back_2.png) center center/contain no-repeat;
+      display: inline-block;
+    }
+
+    .top-bar .bar-title {
+      color: #fff;
+      font-size: 0.427rem;
+      text-align: center;
+    }
+
+    .top-bar .menu-nav {
+      position: absolute;
+      top: 0.4rem;
+      right: 0.4rem;
+      font-size: 0;
+    }
+
+    .top-bar .icon-menu-nav {
+      width: 0.56rem;
+      height: 0.48rem;
+      background: url(./assets/icon_menu_nav_2.png) center center/contain no-repeat;
+      display: inline-block;
+    }
+
+    /****** 主页面板 ******/
+    .home-panel .info-box {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 1.7rem 0 0.4rem 0;
+      margin: 0 0.4rem;
+      background: #FFFFFF;
+      border-radius: 9px;
+      z-index: 2;
+    }
+
+    .home-panel .info-box .user-avatar {
+      position: absolute;
+      top: -1.4rem;
+      left: 0;
+      right: 0;
+      width: 2.8rem;
+      padding: 0.133rem;
+      margin: 0 auto;
+      border-radius: 50%;
+      box-sizing: border-box;
+      background: #FFFFFF;
+      box-shadow: 0 0 0.267rem 0 rgba(0, 79, 125, 0.26);
+    }
+
+    .home-panel .info-box .info-name {
+      font-size: 0.347rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 0.213rem;
+    }
+
+    .home-panel .info-box .text-tag {
+      color: #08AEF8;
+      font-size: 0.267rem;
+      font-weight: normal;
+      font-style: normal;
+      padding: 0.026rem 0.16rem;
+      margin-left: 0.267rem;
+      border-radius: 0.233rem;
+      background-color: #EBFBFF;
+      display: inline-block;
+    }
+
+    .home-panel .info-box .info-title {
+      font-size: 0.32rem;
+      text-align: center;
+      margin-bottom: 0.24rem;
+    }
+
+    .home-panel .info-box .text-label {
+      color: #333;
+      font-weight: 600;
+      margin-left: 0.267rem;
+    }
+
+    .home-panel .info-box .info-status {
+      color: #999999;
+      padding: 0 1.466rem;
+      font-size: 0.293rem;
+      margin-top: 0.267rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .home-panel .info-box .status-number {
+      color: #999999;
+      display: flex;
+      align-items: center;
+    }
+
+    .home-panel .info-box .status-number > img {
+      width: 0.24rem;
+      height: 0.32rem;
+      margin-right: 0.107rem;
+    }
+
+    .home-panel .info-box .status-number .icon-wenda {
+      width: 0.28rem;
+      height: 0.24rem;
+    }
+
+    .home-panel .info-box .status-number .icon-zan {
+      width: 0.24rem;
+      height: 0.24rem;
+    }
+
+    .home-panel .info-box .status-number span {
+      font-size: 0.24rem;
+      vertical-align: middle;
+    }
+
+    /****** 医生主页 ******/
+    .home-section .section-content {
+      padding: 0.4rem;
+      background-color: #fff;
+    }
+
+    .home-section .text-item {
+      margin-bottom: 0.267rem;
+      display: flex;
+    }
+
+    .home-section .text-label {
+      flex-shrink: 0;
+      color: #999999;
+      font-size: 0.32rem;
+      display: inline-block;
+    }
+
+    .home-section .text-value {
+      color: #333333;
+      font-size: 0.32rem;
+      padding-left: 0.267rem;
+    }
+
+    .table-panel {
+      flex-wrap: wrap;
+    }
+
+    .home-section .text-table {
+      color: #999999;
+      margin: 0.267rem 0 0.133rem;
+      border: 1px solid #DDDDDD;
+    }
+
+    .text-table .td-row {
+      border-bottom: 1px solid #DDDDDD;
+      display: flex;
+      align-items: center;
+    }
+
+    .text-table .td-row:first-child {
+      background-color: #F9F9F9;
+    }
+
+    .text-table .td-row:last-child {
+      margin-bottom: -1px;
+      border-bottom: 1px solid transparent;
+    }
+
+    .text-table .td-row > div {
+      flex: 1;
+      height: 1.147rem;
+      border-right: 1px solid #DDDDDD;
+      display: flex;
+      text-align: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .text-table .td-row > div:last-child {
+      margin-right: -1px;
+      border-right: 1px solid transparent;
+    }
+
+    .text-table .td-row > div > span {
+      flex: 1;
+    }
+
+    .text-table .hook {
+      color: #0EA7E6;
+      background: #F3FCFF url("./assets/icon_hook_1.png") 90% 90% /contain no-repeat;
+      background-size: 0.267rem;
+    }
+
+    .section-title {
+      color: #999999;
+      font-size: 0.373rem;
+      padding: 0.4rem 0.4rem 0.2rem;
+    }
+
+    .article-section .question-card .status-info {
+      justify-content: space-between;
+      flex: 1;
+    }
+
+    .qa-section .qa-card {
+      padding: 0.4rem;
+      background-color: #fff;
+      border-bottom: 1px solid #DDDDDD;
+    }
+
+    .qa-section .qa-card:first-child {
+      border-top: 1px solid #DDDDDD;
+    }
+
+    .qa-card .card-title {
+      margin-bottom: 0.2rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .qa-card .icon-wen {
+      width: 0.48rem;
+      height: 0.48rem;
+      flex-shrink: 0;
+      background: url("./assets/icon_wenda_2.png") center center/contain no-repeat;
+    }
+
+    .qa-card .icon-da {
+      width: 0.48rem;
+      height: 0.48rem;
+      flex-shrink: 0;
+      background: url("./assets/icon_da_1.png") center center/contain no-repeat;
+    }
+
+    .qa-card .card-title p {
+      padding-left: 0.267rem;
+      font-size: 0.373rem;
+      font-weight: 600;
+    }
+
+    .qa-card .card-content {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .qa-card .qa-describe {
+      padding-left: 0.267rem;
+    }
+
+    .qa-card .qa-describe p {
+      color: #666666;
+      font-size: 0.32rem;
+      margin-bottom: 0.293rem;
+    }
+
+    .qa-card .card-info {
+      color: #999999;
+      font-size: 0.32rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .qa-card .card-info .view-number img {
+      width: 0.32rem;
+      height: 0.226rem;
+    }
+
+    .comment-section .comment-card {
+      padding: 0.4rem;
+      background-color: #fff;
+      border-bottom: 1px solid #DDDDDD;
+    }
+
+    .comment-section .comment-card:first-child {
+      border-top: 1px solid #DDDDDD;
+    }
+
+    .comment-section .card-title {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .comment-section .user-info {
+      flex: 1;
+      color: #666666;
+      padding-left: 0.267rem;
+    }
+
+    .comment-section .icon-avatar {
+      width: 0.48rem;
+      height: 0.48rem;
+      flex-shrink: 0;
+      background: url("./assets/icon_avatar_1.png") center center/contain no-repeat;
+    }
+
+    .comment-section .card-title .name {
+      font-size: 0.267rem;
+      margin-bottom: 0.107rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .comment-section .score {
+      margin-bottom: 0.24rem;
+    }
+
+    .comment-section .score i {
+      width: 0.32rem;
+      height: 0.32rem;
+      background: url("./assets/icon_stars_1.png") center center/contain no-repeat;
+      display: inline-block;
+    }
+
+    .comment-section .score span {
+      font-size: 0.267rem;
+      margin-left: 0.347rem;
+    }
+
+    .comment-section .qa-describe {
+      font-size: 0.32rem;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+  <div class="home-panel">
+    <div class="bg-circular"></div>
+    <div class="top-bar">
+      <a class="go-back-link" href="javascript:history.back(-1)"><i class="icon-go-back"></i></a>
+      <div class="bar-title">王刚</div>
+      <div class="menu-nav">
+        <i class="icon-menu-nav"></i>
+      </div>
+    </div>
+    <div class="info-box">
+      <img class="user-avatar" src="./assets/user_avatar_1.png">
+      <div class="info-name">孙丽<i class="text-tag">主任医师</i></div>
+      <div class="info-title">首都医科大学宣武医院<span class="text-label">妇科</span></div>
+      <div class="info-status">
+        <a class="status-number" href="./医生文章列表.html">
+          <img src="./assets/icon_doc.png">
+          <span>文章 245</span>
+        </a>
+        <a class="status-number" href="./医生问答列表.html">
+          <img class="icon-wenda" src="./assets/icon_wenda.png">
+          <span>问答 23</span>
+        </a>
+        <a class="status-number" href="./医生评论列表.html">
+          <img class="icon-zan" src="./assets/icon_zan.png">
+          <span>好评率99%</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <section class="home-section">
+    <div class="section-title">医生主页</div>
+    <div class="section-content">
+      <div class="text-item">
+        <span class="text-label">所属医院</span>
+        <span class="text-value">唐山市第二医院</span>
+      </div>
+      <div class="text-item">
+        <span class="text-label">所属科室</span>
+        <span class="text-value">骨科</span>
+      </div>
+      <div class="text-item">
+        <span class="text-label">医生职称</span>
+        <span class="text-value">副主任医师</span>
+      </div>
+      <div class="text-item">
+        <span class="text-label">擅长疾病</span>
+        <span class="text-value">腰腿痛、关节炎</span>
+      </div>
+      <div class="text-item table-panel">
+        <span class="text-label">出诊时间</span>
+        <div class="text-table">
+          <div class="td-row">
+            <div>
+              <span>排班</span>
+            </div>
+            <div>
+              <span>周一12/12</span>
+            </div>
+            <div>
+              <span>周二12/12</span>
+            </div>
+            <div>
+              <span>周三12/12</span>
+            </div>
+            <div>
+              <span>周四12/12</span>
+            </div>
+            <div>
+              <span>周五12/12</span>
+            </div>
+            <div>
+              <span>周六12/12</span>
+            </div>
+            <div>
+              <span>周日12/12</span>
+            </div>
+          </div>
+          <div class="td-row">
+            <div>
+              <span>上午</span>
+            </div>
+            <div class="hook">
+              <span>出诊</span>
+            </div>
+            <div class="hook">
+              <span>出诊</span>
+            </div>
+            <div class="hook">
+              <span>出诊</span>
+            </div>
+            <div class="hook">
+              <span>出诊</span>
+            </div>
+            <div class="hook">
+              <span>出诊</span>
+            </div>
+            <div></div>
+            <div></div>
+          </div>
+          <div class="td-row">
+            <div>
+              <span>下午</span>
+            </div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+      <div class="text-item">
+        <span class="text-label">医生简介</span>
+        <span class="text-value">唐山市第二医院，专职手术医生，临床职称：副主任医师，博士毕业。</span>
+      </div>
+    </div>
+  </section>
+  <section class="related-question article-section">
+    <div class="section-title">文章</div>
+    <div class="section-content">
+      <div class="question-card">
+        <a class="click-tab-block" href="./文章详情.html">
+          <div class="question-title">如何补充钙效果最好</div>
+          <div class="question-describe">补钙是一个热门的话题，帮助人的身体补充钙的方法有很多，除了直接吃些补钙…</div>
+          <div class="card-info">
+            <div class="status-info">
+              <div class="view-number">
+                <img src="./assets/icon_view.png">
+                <span>90876人</span>
+              </div>
+              <div class="update-time">2018-09-02</div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="question-card">
+        <a class="click-tab-block" href="./文章详情.html">
+          <div class="question-title">如何补充钙效果最好</div>
+          <div class="question-describe">补钙是一个热门的话题，帮助人的身体补充钙的方法有很多，除了直接吃些补钙…</div>
+          <div class="card-info">
+            <div class="status-info">
+              <div class="view-number">
+                <img src="./assets/icon_view.png">
+                <span>90876人</span>
+              </div>
+              <div class="update-time">2018-09-02</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="qa-section">
+    <div class="section-title">问答</div>
+    <div class="section-content">
+      <div class="qa-card">
+        <a class="click-tab-block" href="./问答详情.html">
+          <div class="card-title">
+            <i class="icon-wen"></i>
+            <p>如何补充钙效果最好</p>
+          </div>
+          <div class="card-content">
+            <i class="icon-da"></i>
+            <div class="qa-describe">
+              <p>补钙是一个热门的话题，帮助人的身体补充钙的方法有很多，除了直接吃些补钙…</p>
+              <div class="card-info">
+                <div class="view-number">
+                  <img src="./assets/icon_view.png">
+                  <span>90876人</span>
+                </div>
+                <div class="update-time">2018-09-02</div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="qa-card">
+        <a class="click-tab-block" href="./问答详情.html">
+          <div class="card-title">
+            <i class="icon-wen"></i>
+            <p>如何补充钙效果最好</p>
+          </div>
+          <div class="card-content">
+            <i class="icon-da"></i>
+            <div class="qa-describe">
+              <p>补钙是一个热门的话题，帮助人的身体补充钙的方法有很多，除了直接吃些补钙…</p>
+              <div class="card-info">
+                <div class="view-number">
+                  <img src="./assets/icon_view.png">
+                  <span>90876人</span>
+                </div>
+                <div class="update-time">2018-09-02</div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="comment-section">
+    <div class="section-title">评论</div>
+    <div class="section-content">
+      <div class="comment-card">
+        <div class="card-title">
+          <i class="icon-avatar"></i>
+          <div class="user-info">
+            <div class="name">
+              <span>匿名网友</span>
+              <span class="update-time">2018-09-02</span>
+            </div>
+            <div class="score">
+              <i></i><i></i><i></i><i></i><span>98%好评</span>
+            </div>
+            <p class="qa-describe">王刚医生很认真负责，谢谢医生。</p>
+          </div>
+        </div>
+      </div>
+      <div class="comment-card">
+        <div class="card-title">
+          <i class="icon-avatar"></i>
+          <div class="user-info">
+            <div class="name">
+              <span>匿名网友</span>
+              <span class="update-time">2018-09-02</span>
+            </div>
+            <div class="score">
+              <i></i><i></i><i></i><i></i><span>98%好评</span>
+            </div>
+            <p class="qa-describe">王刚医生很认真负责，谢谢医生。</p>
+          </div>
+        </div>
+      </div>
+      <div class="comment-card">
+        <div class="card-title">
+          <i class="icon-avatar"></i>
+          <div class="user-info">
+            <div class="name">
+              <span>匿名网友</span>
+              <span class="update-time">2018-09-02</span>
+            </div>
+            <div class="score">
+              <i></i><i></i><i></i><i></i><span>98%好评</span>
+            </div>
+            <p class="qa-describe">王刚医生很认真负责，谢谢医生。</p>
+          </div>
+        </div>
+      </div>
+      <div class="comment-card">
+        <div class="card-title">
+          <i class="icon-avatar"></i>
+          <div class="user-info">
+            <div class="name">
+              <span>匿名网友</span>
+              <span class="update-time">2018-09-02</span>
+            </div>
+            <div class="score">
+              <i></i><i></i><i></i><i></i><span>98%好评</span>
+            </div>
+            <p class="qa-describe">王刚医生很认真负责，谢谢医生。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="page-footer">
+    <div class="friendship-link">网站简介 | 友情链接 | 联系我们 | 招聘 | 免责声明</div>
+    <div class="copyright">
+      <p>特别声明：本站内容仅供参考，不作为诊断及医疗依据,请谨慎参阅，
+        本站不承担由此引起的相关责任</p>
+      <p>Copyright © 2013-2018 版权所有 未经授权请勿转载 </p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

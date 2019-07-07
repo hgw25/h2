@@ -1,0 +1,640 @@
+* {
+    -webkit-tap-highlight-color: transparent;
+    outline: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    color: #333333;
+    font-size: 0.32rem;
+    font-family: "PingFangSC-Regular", "PingFangSC-Medium", "PingFang SC", "Microsoft YaHei", 微软雅黑, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #F2F2F2;
+}
+
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+img {
+    border: 0 none;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+a {
+    color: #333333;
+    text-decoration: none;
+}
+
+/****** 页面样式 ******/
+.page-wrap {
+    padding-top: 1.386rem;
+}
+
+.page-wrap .bottom-line {
+    border-bottom: 1px solid #DDDDDD;
+}
+
+/****** 页面头部 ******/
+.page-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0.267rem 0.4rem;
+    background-color: #F2F2F2;
+    z-index: 10;
+}
+
+.page-header .header-search-wrap {
+    align-items: center;
+    display: flex;
+}
+
+.page-header .header-search-wrap .icon-logo {
+    width: 0.773rem;
+    height: 0.773rem;
+    background: url("./assets/icon_logo.png") center center/contain no-repeat;
+    display: inline-block;
+}
+
+.page-header .header-search-wrap .icon-go-back {
+    width: 0.253rem;
+    height: 0.533rem;
+    background: url("./assets/icon_go_back.png") center center/contain no-repeat;
+    display: inline-block;
+}
+
+.page-header .header-search-wrap .search-box {
+    margin: 0 0.4rem;
+    border-radius: 0.4rem;
+    background-color: #fff;
+    flex: 1;
+}
+
+.page-header .header-search-wrap .search-back-box {
+    margin: 0 0.4rem 0 0.827rem;
+}
+
+.page-header .header-search-wrap .prefix-icon {
+    width: 0.466rem;
+    height: 0.466rem;
+    background: url("./assets/icon_search.png") center center/contain no-repeat;
+    display: inline-block;
+}
+
+.page-header .header-search-wrap .search-box {
+    padding: 0.16rem 0.44rem 0.2rem 0.293rem;
+    display: flex;
+}
+
+.page-header .header-search-wrap input {
+    font-size: 0.32rem;
+    margin: 0 0.2rem;
+    border: 0;
+    flex: 1;
+}
+
+.page-header .header-search-wrap .icon-search-btn {
+    color: #999999;
+    font-size: 0.347rem;
+}
+
+.page-header input::-webkit-input-placeholder {
+    color: #999999;
+}
+
+.page-header .header-search-wrap .menu-nav {
+    font-size: 0;
+}
+
+.page-header .header-search-wrap .icon-menu-nav {
+    width: 0.56rem;
+    height: 0.48rem;
+    background: url("./assets/icon_menu_nav.png") center center/contain no-repeat;
+    display: inline-block;
+}
+
+.page-header .header-topbar-wrap {
+    padding: 0.107rem 0;
+    align-items: center;
+    display: flex;
+}
+
+.page-header .header-topbar-wrap .icon-go-back {
+    width: 0.253rem;
+    height: 0.533rem;
+    background: url("./assets/icon_go_back.png") center center/contain no-repeat;
+    display: inline-block;
+}
+
+.page-header .header-topbar-wrap .page-title {
+    font-size: 0.427rem;
+    text-align: center;
+    font-weight: 600;
+    flex: 1;
+}
+
+.page-header .header-topbar-wrap .menu-nav {
+    font-size: 0;
+}
+
+.page-header .header-topbar-wrap .icon-menu-nav {
+    width: 0.56rem;
+    height: 0.48rem;
+    background: url("./assets/icon_menu_nav.png") center center/contain no-repeat;
+    display: inline-block;
+}
+
+/****** 页面尾部 ******/
+.page-footer {
+    color: #999999;
+    font-size: 0.293rem;
+    padding: 0.8rem 0.56rem;
+    background-color: #F2F2F2;
+}
+
+.page-footer .friendship-link {
+    text-align: center;
+    margin-bottom: 0.2rem;
+}
+
+.page-footer .copyright {
+    text-align: center;
+    line-height: 0.533rem;
+}
+
+/****** 隐藏滚动条 ******/
+.container::-webkit-scrollbar {
+    background-color: transparent;
+    display: none;
+}
+
+.go-back-link {
+    font-size: 0;
+}
+
+/****** 分类tabs组件 ******/
+.comp-list-tabs {
+    padding: 0 0.4rem 0;
+    border-bottom: 1px solid #DDDDDD;
+    background-color: #fff;
+    white-space: nowrap;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.comp-list-tabs span {
+    position: relative;
+    font-size: 0.373rem;
+    margin-left: 1rem;
+    padding: 0.267rem 0;
+    display: inline-block;
+}
+
+.comp-list-tabs span:first-child {
+    margin-left: 0;
+}
+
+.comp-list-tabs .active {
+    color: #F77120;
+}
+
+.comp-list-tabs .active:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0.053rem;
+    width: 0.64rem;
+    height: 0.106rem;
+    border-radius: 0.106rem;
+    background-image: linear-gradient(-146deg, #FAD961 0%, #F76B1C 100%);
+    display: inline-block;
+}
+
+/****** 列表组件样式 ******/
+.list-component .list-screen {
+    margin-bottom: 0.267rem;
+}
+
+.list-component .list-screen .cx-select-group {
+    border-bottom: 1px solid #DDDDDD;
+    display: flex;
+}
+
+.list-component .list-screen .cx-select:last-child {
+    border-left: 1px solid #DDDDDD;
+}
+
+.list-component .list-screen .cx-select {
+    flex: 1;
+    padding: 0.267rem;
+    background-color: #fff;
+}
+
+.list-component .list-screen .cx-select .slot-text {
+    font-size: 0.373rem;
+    position: relative;
+}
+
+.list-component .list-screen .cx-select .icon-arrow-up {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 0.36rem;
+    height: 100%;
+    background: url("./assets/icon_arrow_up.png") center center/contain no-repeat;
+    display: inline-block;
+}
+
+.list-component .list-content {
+    background-color: #fff;
+}
+
+.list-component .list-content li {
+    padding: 0.4rem;
+    border-bottom: 1px solid #DDDDDD;
+    display: flex;
+}
+
+.list-component .avatar-box {
+    font-size: 0;
+    padding-right: 0.426rem;
+}
+
+.list-component .avatar-box img {
+    width: 1.76rem;
+    height: 1.76rem;
+    border-radius: 50%;
+}
+
+.list-component .avatar-box p {
+    font-size: 0.32rem;
+    margin-top: 0.267rem;
+    text-align: center;
+}
+
+.science-article .list-component .avatar-box {
+    width: 3.01rem;
+}
+
+.list-component .info-title {
+    font-size: 0.373rem;
+    font-weight: 600;
+    margin-bottom: 0.24rem;
+}
+
+.list-component .info-describe {
+    color: #666666;
+    line-height: 0.46rem;
+    min-height: 0.92rem;
+}
+
+.list-component .info-status {
+    color: #999999;
+    font-size: 0.293rem;
+    margin-top: 0.347rem;
+    display: flex;
+}
+
+.list-component .view-number {
+    display: flex;
+    align-items: center;
+}
+
+.list-component .view-number img {
+    width: 0.32rem;
+    height: 0.226rem;
+    margin-right: 0.107rem;
+}
+
+.list-component .update-time {
+    text-align: right;
+    flex: 1;
+}
+
+/****** 列表卡片组件样式 ******/
+.list-card-component .list-content {
+    overflow-x: scroll;
+    background-color: #F2F2F2;
+    display: flex;
+    -webkit-overflow-scrolling: touch;
+}
+
+.list-card-component .list-content li {
+    margin-right: 0.267rem;
+    display: inline-block;
+}
+
+.list-card-component .card-panel {
+    width: 8.106rem;
+    box-sizing: border-box;
+    padding: 0.4rem;
+    background-color: #fff;
+    display: flex;
+}
+
+.list-card-component .avatar-box {
+    font-size: 0;
+    padding-right: 0.32rem;
+}
+
+.list-card-component .avatar-box img {
+    width: 1.866rem;
+    height: 1.866rem;
+    border-radius: 50%;
+    box-shadow: 0 0 0.267rem 0 rgba(0, 79, 125, 0.26);
+    background: #FFFFFF;
+}
+
+.list-card-component .info-name {
+    font-size: 0.347rem;
+    font-weight: 600;
+    margin-bottom: 0.213rem;
+}
+
+.list-card-component .text-tag {
+    color: #08AEF8;
+    font-size: 0.267rem;
+    font-weight: normal;
+    font-style: normal;
+    padding: 0.026rem 0.16rem;
+    margin-left: 0.267rem;
+    border-radius: 0.233rem;
+    background-color: #EBFBFF;
+    display: inline-block;
+}
+
+.list-card-component .info-title {
+    font-size: 0.32rem;
+    margin-bottom: 0.24rem;
+}
+
+.list-card-component .text-label {
+    color: #333;
+    font-weight: 600;
+    margin-left: 0.267rem;
+}
+
+.list-card-component .info-describe {
+    color: #666666;
+    line-height: 0.426rem;
+    min-height: 0.92rem;
+}
+
+.list-card-component .info-status {
+    color: #999999;
+    font-size: 0.293rem;
+    margin-top: 0.267rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-card-component .status-number {
+    color: #999999;
+    display: flex;
+    align-items: center;
+}
+
+.list-card-component .status-number > img {
+    width: 0.24rem;
+    height: 0.32rem;
+    margin-right: 0.107rem;
+}
+
+.list-card-component .status-number .icon-wenda {
+    width: 0.28rem;
+    height: 0.24rem;
+}
+
+.list-card-component .status-number .icon-zan {
+    width: 0.24rem;
+    height: 0.24rem;
+}
+
+.list-card-component .status-number > span {
+    font-size: 0.24rem;
+    vertical-align: middle;
+}
+
+/****** 列表卡片组件样式2 ******/
+.list-card-2-component .list-content {
+    overflow-x: visible;
+    display: block;
+}
+
+.list-card-2-component .card-panel {
+    width: 100%;
+}
+
+.list-card-2-component .list-content li {
+    margin: 0;
+    display: block;
+}
+
+/****** 问题卡片样式 ******/
+.question-card {
+    padding: 0.4rem;
+    background-color: #fff;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.question-card:first-child {
+    border-top: 1px solid #DDDDDD;
+}
+
+.question-card .question-title {
+    font-size: 0.373rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.question-card .question-describe {
+    color: #666666;
+    font-size: 0.32rem;
+    margin-bottom: 0.293rem;
+}
+
+.question-card .card-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.question-card .author-info img {
+    width: 0.533rem;
+    margin-right: 0.307rem;
+    vertical-align: middle;
+}
+
+.question-card .author-info span {
+    font-size: 0.32rem;
+    vertical-align: middle;
+}
+
+.question-card .status-info {
+    color: #999999;
+    justify-content: flex-end;
+    display: flex;
+}
+
+.question-card .view-number img {
+    width: 0.32rem;
+    height: 0.226rem;
+}
+
+.question-card .update-time {
+    margin-left: 0.4rem;
+}
+
+/****** 快捷入口组件 ******/
+.comp-entry-modal {
+    position: fixed;
+    top: 1.346rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    background: rgba(242, 242, 242, 0.70);
+}
+
+.show {
+    display: block;
+}
+
+.comp-entry-modal .comp-shortcut-entry {
+    padding: 0.68rem 0 0.76rem;
+    border-bottom: 0;
+}
+
+.comp-entry-modal .comp-shortcut-entry .entry-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: -0.4rem;
+}
+
+.comp-entry-modal .comp-shortcut-entry .entry-list li {
+    margin: 0 0.907rem 0.4rem;
+    flex: none;
+}
+
+
+
+.comp-shortcut-entry {
+    padding: 0.533rem 0 0.666rem;
+    border-bottom: 1px solid #DDDDDD;
+    background-color: #fff;
+}
+
+.comp-shortcut-entry .entry-list {
+    display: flex;
+}
+
+.comp-shortcut-entry .entry-list li {
+    font-size: 0;
+    text-align: center;
+    flex: 1;
+}
+
+.comp-shortcut-entry .entry-list img {
+    width: 1.333rem;
+}
+
+.comp-shortcut-entry .entry-list p {
+    font-size: 0.32rem;
+    margin-top: 0.2rem;
+}
+
+/****** select 组件 ******/
+.comp-select {
+    position: fixed;
+    top: 1.346rem;
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.comp-select .list-screen {
+    /*margin-bottom: 0.267rem;*/
+}
+
+.comp-select .list-screen .cx-select-group {
+    border-bottom: 1px solid #DDDDDD;
+    display: flex;
+}
+
+.comp-select .list-screen .cx-select:last-child {
+    border-left: 1px solid #DDDDDD;
+}
+
+.comp-select .list-screen .cx-select {
+    flex: 1;
+    padding: 0.267rem;
+    background-color: #fff;
+}
+
+.comp-select .list-screen .cx-select .slot-text {
+    font-size: 0.373rem;
+    position: relative;
+}
+
+.comp-select .list-screen .cx-select .icon-arrow-up {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 0.36rem;
+    height: 100%;
+    background: url("./assets/icon_arrow_up.png") center center/contain no-repeat;
+    display: inline-block;
+}
+
+.comp-select .select-options {
+    background-color: #fff;
+    display: none;
+
+}
+
+.comp-select .select-options li {
+    color: #666666;
+    font-size: 0.373rem;
+    padding: 0.267rem 0.4rem;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.comp-select .select-options .active {
+    color: #09BFF2;
+}
+
+.is-select-focus {
+    position: fixed;
+    top: 1.346rem;
+    bottom: 0;
+    background: rgba(242, 242, 242, 0.70);
+}
+
+.is-select-focus .select-options {
+    display: block;
+}
+
+/****** 全局点击模版 ******/
+.click-tab-flex {
+    color: #333333;
+    text-decoration: none;
+    display: flex;
+}
+
+.click-tab-block {
+    display: block;
+}
+
+

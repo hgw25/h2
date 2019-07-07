@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta content="telephone=no" name="format-detection">
+  <title>医生评论列表</title>
+  <script>
+    (function (win) {
+      var remCalc = {};
+      var docEl = win.document.documentElement,
+        tid,
+        hasRem = true,
+        hasZoom = true,
+        zoomRuler = 'width',
+        designWidth = 750,
+        designHeight = 1206;
+
+      function refresh() {
+        var width = docEl.clientWidth;
+        var height = docEl.clientHeight;
+        if (width > 768) width = 768;
+        if (hasRem) {
+          var rem = width / 10;
+          docEl.style.fontSize = rem + "px";
+          remCalc.rem = rem;
+          var actualSize = parseFloat(window.getComputedStyle(document.documentElement)["font-size"]);
+          if (actualSize !== rem && actualSize > 0 && Math.abs(actualSize - rem) > 1) {
+            var remScaled = rem * rem / actualSize;
+            docEl.style.fontSize = remScaled + "px";
+          }
+        }
+        if (hasZoom) {
+          var style = document.getElementById('J__style');
+          if (!style) {
+            style = document.createElement('style');
+            style.id = 'J__style';
+          }
+          var r, s;
+          if (zoomRuler === 'height') {
+            r = height / designHeight;
+          } else {
+            r = width / designWidth;
+          }
+          r.toFixed && (r = r.toFixed(5));
+          s = '.__z{zoom:' + r + '} ';
+          s += '.__s{-webkit-transform: scale(' + r + ');transform: scale(' + r + ')}';
+
+          style.innerHTML = s;
+          document.getElementsByTagName('head')[0].appendChild(style);
+        }
+      }
+
+      function dbcRefresh() {
+        clearTimeout(tid);
+        tid = setTimeout(refresh, 100)
+      }
+
+      win.addEventListener("resize", function () {
+        dbcRefresh()
+      }, false);
+
+      win.addEventListener("pageshow", function (e) {
+        if (e.persisted) {
+          dbcRefresh();
+        }
+      }, false);
+      refresh();
+      if (hasRem) {
+        remCalc.refresh = refresh;
+        remCalc.rem2px = function (d) {
+          var val = parseFloat(d) * this.rem;
+          if (typeof d === "string" && d.match(/rem$/)) {
+            val += "px";
+          }
+          return val;
+        };
+        remCalc.px2rem = function (d) {
+          var val = parseFloat(d) / this.rem;
+          if (typeof d === "string" && d.match(/px$/)) {
+            val += "rem";
+          }
+          return val;
+        };
+        win.remCalc = remCalc;
+      }
+    })(window);
+  </script>
+  <link rel="stylesheet" href="./common.css">
+  <style>
+    .page-wrap {
+      padding: 0;
+    }
+
+    .home-panel {
+      position: relative;
+      min-height: 6.666rem;
+      overflow: hidden;
+    }
+
+    .bg-circular {
+      height: 6.2rem;
+      margin: 0 -5%;
+      border-radius: 0 0 50% 50%;
+      background-image: linear-gradient(-135deg, #3695F8 16%, #0DC3F5 100%);
+    }
+
+    .top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding-top: 0.373rem;
+    }
+
+    .top-bar .icon-go-back {
+      position: absolute;
+      top: 0.4rem;
+      left: 0.4rem;
+      width: 0.253rem;
+      height: 0.533rem;
+      background: url(./assets/icon_go_back_2.png) center center/contain no-repeat;
+      display: inline-block;
+    }
+
+    .top-bar .bar-title {
+      color: #fff;
+      font-size: 0.427rem;
+      text-align: center;
+    }
+
+    .top-bar .menu-nav {
+      position: absolute;
+      top: 0.4rem;
+      right: 0.4rem;
+      font-size: 0;
+    }
+
+    .top-bar .icon-menu-nav {
+      width: 0.56rem;
+      height: 0.48rem;
+      background: url(./assets/icon_menu_nav_2.png) center center/contain no-repeat;
+      display: inline-block;
+    }
+
+    /****** 主页面板 ******/
+    .home-panel .info-box {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 1.7rem 0 0.4rem 0;
+      margin: 0 0.4rem;
+      background: #FFFFFF;
+      border-radius: 9px;
+      z-index: 2;
+    }
+
+    .home-panel .info-box .user-avatar {
+      position: absolute;
+      top: -1.4rem;
+      left: 0;
+      right: 0;
+      width: 2.8rem;
+      padding: 0.133rem;
+      margin: 0 auto;
+      border-radius: 50%;
+      box-sizing: border-box;
+      background: #FFFFFF;
+      box-shadow: 0 0 0.267rem 0 rgba(0, 79, 125, 0.26);
+    }
+
+    .home-panel .info-box .info-name {
+      font-size: 0.347rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 0.213rem;
+    }
+
+    .home-panel .info-box .text-tag {
+      color: #08AEF8;
+      font-size: 0.267rem;
+      font-weight: normal;
+      font-style: normal;
+      padding: 0.026rem 0.16rem;
+      margin-left: 0.267rem;
+      border-radius: 0.233rem;
+      background-color: #EBFBFF;
+      display: inline-block;
+    }
+
+    .home-panel .info-box .info-title {
+      font-size: 0.32rem;
+      text-align: center;
+      margin-bottom: 0.24rem;
+    }
+
+    .home-panel .info-box .text-label {
+      color: #333;
+      font-weight: 600;
+      margin-left: 0.267rem;
+    }
+
+    .home-panel .info-box .info-status {
+      color: #999999;
+      padding: 0 1.466rem;
+      font-size: 0.293rem;
+      margin-top: 0.267rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .home-panel .info-box .status-number {
+      color: #999999;
+      display: flex;
+      align-items: center;
+    }
+
+    .home-panel .info-box .status-number > img {
+      width: 0.24rem;
+      height: 0.32rem;
+      margin-right: 0.107rem;
+    }
+
+    .home-panel .info-box .status-number .icon-wenda {
+      width: 0.28rem;
+      height: 0.24rem;
+    }
+
+    .home-panel .info-box .status-number .icon-zan {
+      width: 0.24rem;
+      height: 0.24rem;
+    }
+
+    .home-panel .info-box .status-number > span {
+      font-size: 0.24rem;
+      vertical-align: middle;
+    }
+
+    /****** 医生主页 ******/
+    .section-title {
+      color: #999999;
+      font-size: 0.373rem;
+      padding: 0.4rem 0.4rem 0.2rem;
+    }
+
+    .comment-section .comment-card {
+      padding: 0.4rem;
+      background-color: #fff;
+      border-bottom: 1px solid #DDDDDD;
+    }
+
+    .comment-section .comment-card:first-child {
+      border-top: 1px solid #DDDDDD;
+    }
+
+    .comment-section .card-title {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .comment-section .user-info {
+      flex: 1;
+      color: #666666;
+      padding-left: 0.267rem;
+    }
+
+    .comment-section .icon-avatar {
+      width: 0.48rem;
+      height: 0.48rem;
+      flex-shrink: 0;
+      background: url("./assets/icon_avatar_1.png") center center/contain no-repeat;
+    }
+
+    .comment-section .card-title .name {
+      font-size: 0.267rem;
+      margin-bottom: 0.107rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .comment-section .score {
+      margin-bottom: 0.24rem;
+    }
+
+    .comment-section .score i {
+      width: 0.32rem;
+      height: 0.32rem;
+      background: url("./assets/icon_stars_1.png") center center/contain no-repeat;
+      display: inline-block;
+    }
+
+    .comment-section .score span {
+      font-size: 0.267rem;
+      margin-left: 0.347rem;
+    }
+
+    .comment-section .qa-describe {
+      font-size: 0.32rem;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+  <div class="home-panel">
+    <div class="bg-circular"></div>
+    <div class="top-bar">
+      <a class="go-back-link" href="javascript:history.back(-1)"><i class="icon-go-back"></i></a>
+      <div class="bar-title">王刚</div>
+      <div class="menu-nav">
+        <i class="icon-menu-nav"></i>
+      </div>
+    </div>
+    <div class="info-box">
+      <img class="user-avatar" src="./assets/user_avatar_1.png">
+      <div class="info-name">孙丽<i class="text-tag">主任医师</i></div>
+      <div class="info-title">首都医科大学宣武医院<span class="text-label">妇科</span></div>
+      <div class="info-status">
+        <a class="status-number" href="./医生文章列表.html">
+          <img src="./assets/icon_doc.png">
+          <span>文章 245</span>
+        </a>
+        <a class="status-number" href="./医生问答列表.html">
+          <img class="icon-wenda" src="./assets/icon_wenda.png">
+          <span>问答 23</span>
+        </a>
+        <a class="status-number" href="./医生评论列表.html">
+          <img class="icon-zan" src="./assets/icon_zan.png">
+          <span>好评率99%</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <section class="comment-section">
+    <div class="section-title">评论</div>
+    <div class="section-content">
+      <div class="comment-card">
+        <div class="card-title">
+          <i class="icon-avatar"></i>
+          <div class="user-info">
+            <div class="name">
+              <span>匿名网友</span>
+              <span class="update-time">2018-09-02</span>
+            </div>
+            <div class="score">
+              <i></i><i></i><i></i><i></i><span>98%好评</span>
+            </div>
+            <p class="qa-describe">王刚医生很认真负责，谢谢医生。</p>
+          </div>
+        </div>
+      </div>
+      <div class="comment-card">
+        <div class="card-title">
+          <i class="icon-avatar"></i>
+          <div class="user-info">
+            <div class="name">
+              <span>匿名网友</span>
+              <span class="update-time">2018-09-02</span>
+            </div>
+            <div class="score">
+              <i></i><i></i><i></i><i></i><span>98%好评</span>
+            </div>
+            <p class="qa-describe">王刚医生很认真负责，谢谢医生。</p>
+          </div>
+        </div>
+      </div>
+      <div class="comment-card">
+        <div class="card-title">
+          <i class="icon-avatar"></i>
+          <div class="user-info">
+            <div class="name">
+              <span>匿名网友</span>
+              <span class="update-time">2018-09-02</span>
+            </div>
+            <div class="score">
+              <i></i><i></i><i></i><i></i><span>98%好评</span>
+            </div>
+            <p class="qa-describe">王刚医生很认真负责，谢谢医生。</p>
+          </div>
+        </div>
+      </div>
+      <div class="comment-card">
+        <div class="card-title">
+          <i class="icon-avatar"></i>
+          <div class="user-info">
+            <div class="name">
+              <span>匿名网友</span>
+              <span class="update-time">2018-09-02</span>
+            </div>
+            <div class="score">
+              <i></i><i></i><i></i><i></i><span>98%好评</span>
+            </div>
+            <p class="qa-describe">王刚医生很认真负责，谢谢医生。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="page-footer">
+    <div class="friendship-link">网站简介 | 友情链接 | 联系我们 | 招聘 | 免责声明</div>
+    <div class="copyright">
+      <p>特别声明：本站内容仅供参考，不作为诊断及医疗依据,请谨慎参阅，
+        本站不承担由此引起的相关责任</p>
+      <p>Copyright © 2013-2018 版权所有 未经授权请勿转载 </p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

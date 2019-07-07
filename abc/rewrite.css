@@ -1,0 +1,29 @@
+/************ 覆盖样式 ************/
+.wrap1 .wrap-left {
+    width: 100%;
+    height: auto;
+    float: left;
+    border: 1px #ebebeb solid;
+    box-sizing: border-box;
+    background: #fff;
+}
+.wrap1 .wrap-left ul {
+    width: 100%;
+    height: auto;
+}
+.wrap1 .wrap-left li {
+    width: 243px;
+    height: 185px;
+    float: left;
+    background: #f6f6f6;
+    margin: 10px 0 10px 10px;
+}
+.wrap1 .wrap-left li i {
+    margin: 5px auto 0;
+}
+.wrap1 .wrap-left li p {
+    width: auto;
+}
+.wrap1 .wrap-left li b {
+    width: auto;
+}

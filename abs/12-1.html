@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.4.11/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="">
+        </div>
+    </header>
+
+    <div class="main" id="app">
+        <div class="edit-block">
+            <img src="images/edit.png"/>
+           编辑
+        </div>
+        <div class="line-title">条线详情</div>
+        <div class="table-block">
+            <div class="table-block-item">
+                <div>公司类型:</div>
+                <div class="table-item-content"> 股份制银行</div>
+            </div>
+            <div class="table-block-item">
+                <div>公司全称: </div>
+                <div class="table-item-content"> 招商银行股份有些公司</div>
+            </div>
+            <div class="table-block-item">
+                <div>公司简称: </div>
+                <div class="table-item-content"> 招商银行</div>
+            </div>
+            <div class="table-block-item">
+                <div>总/分/支: </div>
+                <div class="table-item-content"> 总行</div>
+            </div>
+            <div class="table-block-item">
+                <div>条线类型: </div>
+                <div class="table-item-content"> 招商银行</div>
+            </div>
+            <div class="table-block-item">
+                <div>条线名称: </div>
+                <div class="table-item-content"> 招商银行</div>
+            </div>
+        </div>
+    </div>
+</body>
+    <!-- import Vue before Element -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+        var Main = {
+        data() {
+            return {
+            }
+        },
+        methods: {
+            onSubmit() {
+                console.log('submit!');
+                }
+            }
+        }
+        var Ctor = Vue.extend(Main)
+        new Ctor().$mount('#app')
+    </script>
+</html>

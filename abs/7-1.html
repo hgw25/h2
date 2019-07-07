@@ -1,0 +1,358 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.4.11/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="">
+        </div>
+        <div class="nav">
+            <div class="nav-item">考核概括</div>
+            <div class="nav-item">我的产品</div>
+            <div class="nav-item">客户管理</div>
+            <div class="nav-item">营销管理</div>
+            <div class="nav-item">反馈管理</div>
+            <div class="nav-item">个人信息</div>
+        </div>
+    </header>
+
+    <div class="main" id="app">
+        <div class="product-detail block-top">
+            产品详情
+        </div>
+        <div class="product-detail-block">
+            <div clas="product-detail-item">
+                <span class="product-item-title">产品全称:</span>
+                <span> 华谊兄弟影院信托受益权资支持证券</span>
+            </div>
+            <div clas="product-detail-item">
+                <span class="product-item-title">发起机构全称:</span>
+                <span> 华谊兄弟影院信托受益权资支持证券</span>
+            </div>
+            <div class="product-detail-item detail-items-block">
+                <div>
+                    <span class="product-item-title">交易场所:</span>
+                    <span>上交所</span>
+                </div>
+                <div>
+                    <span class="product-item-title">产品类型:</span>
+                    <span>企业ABS</span>
+                </div>
+                <div>
+                    <span class="product-item-title">底层类型:</span>
+                    <span>收费收益权</span>
+                </div>
+            </div>
+        </div>
+        <div class="my-feedback">
+            <div class="feedback-title">我的反馈</div>
+            <div class="title-right">
+                <img src="images/input.png" alt="">
+                导出模板报告</div>
+        </div>
+        <div class="product-select">
+            <div class="product-select-item1">
+                <div>ABS-Broker</div>
+                <div>
+                    <input type="text">
+                </div>
+            </div>
+            <div class="product-select-item2">
+                <div>ABS-Broker</div>
+                <div>
+                    <input type="text">
+                </div>
+            </div>
+            <div class="product-select-item3">
+                <div>ABS-Broker</div>
+                <div>
+                    <input type="text">
+                </div>
+            </div>
+            <div class="submit-select">
+                确定筛选
+            </div>
+        </div>
+        <div class="">
+                <div class="detail-item-table market product-table table-small table-border">
+                <el-table
+                    :data="tableData"
+                    stripe
+                    style="width: 100%">
+                    <el-table-column
+                            fixed
+                            prop="date"
+                            label="ABS-Broker"
+                            width="80">
+                        </el-table-column>
+                        <el-table-column
+                            fixed
+                            prop="date"
+                            label="条线"
+                            width="180">
+                        </el-table-column>
+                        <el-table-column
+                            fixed
+                            prop="date"
+                            label="匹配来源"
+                            width="220">
+                        </el-table-column>
+                        <el-table-column
+                            prop="name"
+                            label="优先级A">
+                            <el-table-column
+                                prop="address"
+                                label="数量">
+                            </el-table-column>
+                            <el-table-column
+                                prop="address"
+                                label="规模">
+                            </el-table-column>
+                        </el-table-column>
+                        <el-table-column
+                            prop="address"
+                            label="优先级B">
+                            <el-table-column
+                                prop="address"
+                                label="客户数量">
+                            </el-table-column>
+                            <el-table-column
+                                prop="address"
+                                label="客户数量">
+                            </el-table-column>
+                        </el-table-column>
+                        <el-table-column
+                            prop="name"
+                            label="次级">
+                            <el-table-column
+                                prop="address"
+                                label="客户数量">
+                            </el-table-column>
+                            <el-table-column
+                                prop="address"
+                                label="客户数量">
+                            </el-table-column>
+                        </el-table-column>
+                        <el-table-column
+                            prop="name"
+                            label="次级">
+                            <el-table-column
+                                prop="address"
+                                label="客户数量">
+                            </el-table-column>
+                            <el-table-column
+                                prop="address"
+                                label="客户数量">
+                            </el-table-column>
+                        </el-table-column>
+                </el-table>
+            </div>
+            <div class="product-bottom-block"> 
+                <div class="bottom-block-item1">
+                    <div class="bottom-item1-left">
+                        <div>
+                            <span class="bottom-icon"></span>
+                            <span class="bottom-content-time">
+                                2017.11.18 10:23
+                                成功缴款
+                            </span>
+                            <span>
+                                <img class="close-icon" src="images/close.png" alt="">
+                            </span>
+                        </div>
+                        <div class="bottom-left-info">成功缴款</div>
+                    </div>
+                    <div class="bottom-item1-left">
+                        <div>
+                            <span class="bottom-icon"></span>
+                            <span class="bottom-content-time">
+                                2017.11.18 10:23
+                                成功缴款
+                            </span>
+                            <span>
+                                <img class="close-icon" src="images/close.png" alt="">
+                            </span>
+                        </div>
+                        <div class="bottom-left-info">成功缴款</div>
+                    </div>
+                    <div class="bottom-item1-left">
+                        <div>
+                            <span class="bottom-icon"></span>
+                            <span class="bottom-content-time">
+                                2017.11.18 10:23
+                                成功缴款
+                            </span>
+                            <span>
+                                <img class="close-icon" src="images/close.png" alt="">
+                            </span>
+                        </div>
+                        <div class="bottom-left-info">成功缴款</div>
+                    </div>
+                    <div class="bottom-item1-left">
+                        <div>
+                            <span class="bottom-icon bottom-icon4"></span>
+                            <span class="bottom-content-time">
+                                2017.11.18 10:23
+                                成功缴款
+                            </span>
+                            <span>
+                                <img class="close-icon" src="images/close.png" alt="">
+                            </span>
+                        </div>
+                        <div class="bottom-left-info">成功缴款</div>
+                    </div>
+                    <div class="bottom-item1-left">
+                        <div>
+                            <span class="bottom-icon bottom-icon4"></span>
+                            <span class="bottom-content-time">
+                                2017.11.18 10:23
+                                成功缴款
+                            </span>
+                            <span>
+                                <img class="close-icon" src="images/close.png" alt="">
+                            </span>
+                        </div>
+                        <div class="bottom-left-info">成功缴款</div>
+                    </div>
+                </div>
+                <div class="bottom-block-item2">
+                    <div class="bottom-right-input">
+                        <div class="item-input-small">
+                            <input type="text" value="规模"> 亿
+                        </div>
+                        <div class="item-input-small">
+                            <input type="text" value="收益率"> 亿
+                        </div>
+                        <div class="bottomm-item-select small-right">
+                            <el-select v-model="value" placeholder="ABS-Broker">
+                                <el-option
+                                    v-for="item in options"
+                                    :key="item.value"
+                                    :label="item.label"
+                                    :value="item.value">
+                                </el-option>
+                            </el-select>
+                        </div>
+                        <div class="bottomm-item-select bottom-submit">
+                            <el-select v-model="value" placeholder="ABS-Broker">
+                                <el-option
+                                    v-for="item in options"
+                                    :key="item.value"
+                                    :label="item.label"
+                                    :value="item.value">
+                                </el-option>
+                            </el-select>
+                            <div class="add">+</div>
+                        </div>
+                    </div>
+                    <div class="bottom-right-content">
+                        <div>
+                            <span class="content-right">欧阳航</span> 
+                            <span>资金局资金交易部交易处</span>
+                            <span>副处长</span>
+                        </div>
+                        <div>QQ: 2925756</div>
+                        <div>
+                            <span class="tel">座机: 010-88309823</span>
+                            <span>手机: 13911946403</span>
+                        </div>
+                        <div>
+                            <span class="tel">传真: 010-88309823</span>
+                            <span>邮箱: ouyanghang@cdb.cn</span>
+                        </div>
+                    </div>
+                    <div class="status-all">
+                        <div class="bottom-status">
+                            <div class="text">放弃跟进</div>
+                            <div class="triangle1"></div>
+                        </div>
+                        <div class="bottom-status color1">
+                            <div class="text">放弃跟进</div>
+                            <div class="triangle1"></div>
+                        </div>
+                        <div class="bottom-status color2">
+                            <div class="text">放弃跟进</div>
+                            <div class="triangle1"></div>
+                        </div>
+                        <div class="bottom-status color3">
+                            <div class="text">放弃跟进</div>
+                            <div class="triangle1"></div>
+                        </div>
+                    </div>
+                    <div class="bottom-send-input">
+                        <div><input type="在上方三种状态中，进行选择、标记。请输入跟踪进度，描述尽量简练."></div>
+                        <span>发送</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+    <!-- import Vue before Element -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+        var Main = {
+        data() {
+            return {
+                tableData: [{
+                    date: '王小虎',
+                    name: 'q',
+                    address: '上海市'
+                }, {
+                    date: '王小虎',
+                    name: 'q',
+                    address: '上海市'
+                }, {
+                    date: '王小虎',
+                    name: '',
+                    address: '上海市'
+                }, {
+                    date: '王小虎',
+                    name: 'q',
+                    address: '上海市'
+                }, {
+                    date: '王小虎',
+                    name: 'q',
+                    address: '上海市'
+                }],
+                options: [{
+                    value: '选项1',
+                        label: '黄金糕'
+                    }, {
+                    value: '选项2',
+                        label: '双皮奶'
+                    }, {
+                    value: '选项3',
+                        label: '蚵仔煎'
+                    }, {
+                    value: '选项4',
+                        label: '龙须面'
+                    }, {
+                    value: '选项5',
+                        label: '北京烤鸭'
+                    }],
+                    value: ''
+                }
+        },
+        methods: {
+            onSubmit() {
+                console.log('submit!');
+                }
+            }
+        }
+        var Ctor = Vue.extend(Main)
+        new Ctor().$mount('#app')
+    </script>
+</html>

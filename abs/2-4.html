@@ -1,0 +1,115 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.4.11/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="">
+        </div>
+        <div class="nav">
+            <div class="nav-item">考核概括</div>
+            <div class="nav-item">我的产品</div>
+            <div class="nav-item">客户管理</div>
+            <div class="nav-item">营销管理</div>
+            <div class="nav-item">反馈管理</div>
+            <div class="nav-item">个人信息</div>
+        </div>
+    </header>
+
+    <div class="main" id="app">
+        <div class="select-tab list-top">
+            <div>团队考核</div>
+            <div>市场预览</div>
+            <div>发起机构排行</div>
+            <div class="select-tab-checkout">主承排名</div>
+            <div>管理人排名</div>
+        </div>
+        <div class="rectangle">
+            <div class="diray-block">
+                薄记日
+                <div class="block-data">
+                    <el-date-picker
+                        type="date"
+                        placeholder="选择日期">
+                    </el-date-picker>
+                </div>
+                <div> ~ </div>
+                <div class="block-data">
+                    <el-date-picker
+                        type="date"
+                        placeholder="选择日期">
+                    </el-date-picker>
+                </div> 
+            </div>
+            <div class="select-btn">确定筛选</div>
+        </div>
+        <div class="detail-item-table">
+            <el-table
+                :data="tableData"
+                stripe
+                style="width: 100%">
+                <el-table-column
+                    prop="date"
+                    label="排名"
+                    width="68">
+                </el-table-column>
+                <el-table-column
+                    prop="name"
+                    label="主承机构(包括联系主席)">
+                </el-table-column>
+            </el-table>
+        </div>
+    </div>
+</body>
+    <!-- import Vue before Element -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+        var Main = {
+        data() {
+            return {
+                formInline: {
+                    user: '',
+                    region: '',
+                    checked: true
+                },
+                tableData: [{
+                    date: '王小虎',
+                    name: 'q',
+                    address: '上海市'
+                }, {
+                    date: '王小虎',
+                    name: 'q',
+                    address: '上海市'
+                }, {
+                    date: '王小虎',
+                    name: '',
+                    address: '上海市'
+                }, {
+                    date: '王小虎',
+                    name: 'q',
+                    address: '上海市'
+                }]
+            }
+        },
+        methods: {
+            onSubmit() {
+                console.log('submit!');
+                }
+            }
+        }
+        var Ctor = Vue.extend(Main)
+        new Ctor().$mount('#app')
+    </script>
+</html>

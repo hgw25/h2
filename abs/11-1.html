@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.4.11/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="">
+        </div>
+    </header>
+
+    <div class="main" id="app">
+        <div class="line-title">添加条线</div>
+        <div class="person-info line-info">
+            <div class="person-info-item">
+                <div class="person-info-content">
+                    <div class="item-title">姓名</div>
+                    <div>
+                        <input type="text" value="龙淼">
+                    </div>
+                </div>
+            </div>
+            <div class="person-info-item">
+                <div class="person-info-content">
+                    <div class="item-title">公司类型</div>
+                    <div>
+                        <input type="text" value="大行">
+                    </div>
+                </div>
+            </div>
+            <div class="person-info-item">
+                <div class="person-info-content">
+                    <div class="item-title">公司全称</div>
+                    <div>
+                        <input type="text" value="中国银行股份有限公司">
+                    </div>
+                </div>
+            </div>
+            <div class="person-info-item">
+                <div class="person-info-content">
+                    <div class="item-title">公司简称</div>
+                    <div>
+                        <input type="text" value="中国银行">
+                    </div>
+                </div>
+            </div>
+            <div class="person-info-item">
+                <div class="person-info-content">
+                    <div class="item-title">总/分/支</div>
+                    <div>
+                        <input type="text" value="上海分行">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="save">保持</div>
+    </div>
+</body>
+    <!-- import Vue before Element -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+        var Main = {
+        data() {
+            return {
+            }
+        },
+        methods: {
+            onSubmit() {
+                console.log('submit!');
+                }
+            }
+        }
+        var Ctor = Vue.extend(Main)
+        new Ctor().$mount('#app')
+    </script>
+</html>

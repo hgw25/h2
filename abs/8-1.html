@@ -1,0 +1,352 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.4.11/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="">
+        </div>
+    </header>
+
+    <div class="main" id="app">
+        <div class="edit-block-all">
+            <div >
+                <img src="images/copy.png" />复制</div>
+            <div>
+                <img src="images/share-icon.png" />分享
+            </div>
+            
+            <div><img src="images/edit-icon.png" />编辑</div>
+        </div>
+        <div class="title-block">
+            <div class="title-name">产品详情</div>
+            <div class="title-time">发行期</div>
+        </div>
+        <div class="info-block-all">
+            <div class="info-block">
+                <span class="span-title">产品全称:</span>
+                <span>华谊兄弟影院信托受益权资产支持证券</span>
+            </div>
+            <div class="info-block">
+                <div class="block-item-info">
+                    <span class="span-title">佣金(约):</span>
+                    <span>10.8万 | 付费</span>
+                </div>
+                <div class="block-item-info">
+                    <span class="span-title">发起机构全称:</span>:</span>
+                    <span>华谊兄弟传媒股份有限公司</span>
+                </div>
+            </div>
+            <div class="info-block">
+                <div class="block-item-info">
+                    <span class="span-title">交易场所:</span>
+                    <span>上交所</span>
+                </div>
+                <div class="block-item-info">
+                    <span class="span-title">产品类型:</span>:</span>
+                    <span>企业ABS</span>
+                </div>
+                <div class="block-item-info">
+                    <span class="span-title">底层类型:</span>:</span>
+                    <span>收费收益权</span>
+                </div>
+            </div>
+            <div class="info-block">
+                <div class="block-item-info">
+                    <span class="span-title">管理人简称:</span>
+                    <span>上交所</span>
+                </div>
+                <div class="block-item-info">
+                    <span class="span-title">牵头主承简称:</span>:</span>
+                    <span>企业ABS</span>
+                </div>
+                <div class="block-item-info">
+                    <span class="span-title">联席主承简称:</span>:</span>
+                    <span>收费收益权</span>
+                </div>
+            </div>
+            <div class="info-block">
+                <div class="block-item-info">
+                    <span class="span-title">总规模:</span>
+                    <span>上交所</span>
+                </div>
+                <div class="block-item-info">
+                    <span class="span-title">币种:</span>:</span>
+                    <span>企业ABS</span>
+                </div>
+                <div class="block-item-info">
+                    <span class="span-title">计息天数:</span>:</span>
+                    <span>收费收益权</span>
+                </div>
+            </div>
+            <div class="info-block">
+                <div class="block-item-info">
+                    <span class="span-title">面值:</span>
+                    <span>上交所</span>
+                </div>
+                <div class="block-item-info">
+                    <span class="span-title">薄记日:</span>:</span>
+                    <span>企业ABS</span>
+                </div>
+            </div>
+            <div class="info-block">
+                <div class="block-item-info">
+                    <span class="span-title">交割日:</span>
+                    <span>2019.10.6周三</span>
+                </div>
+                <div class="block-item-info">
+                    <span class="span-title">起息日:</span>:</span>
+                    <span>2019.10.6周三</span>
+                </div>
+                <div class="block-item-info">
+                    <span class="span-title">上市日:</span>:</span>
+                    <span>2019.10.6周三</span>
+                </div>
+            </div>
+            <div class="info-block">
+                <div class="block-item-info">
+                    <span class="span-title">首次偿付日:</span>
+                    <span>2019.10.6周三</span>
+                </div>
+                <div class="block-item-info">
+                    <span class="span-title">当前偿付日:</span>:</span>
+                    <span>2017.10.6周三</span>
+                </div>
+                <div class="block-item-info">
+                    <span class="span-title">下一偿付日:</span>:</span>
+                    <span>-</span>
+                </div>
+            </div>
+        </div>
+        <div class="title-block">
+            <div class="title-name">原始分档信息</div>
+            <div class="title-info">
+                <div>我的反馈<span>8</span></sapn></div>
+                <div>团队反馈统计</div>
+                <div>导出反馈报告</div>
+            </div>
+        </div>
+        <div class="detail-item-table detail-text grad">
+            <el-table
+                :data="tableData"
+                stripe
+                style="width: 100%">
+                <el-table-column
+                    prop="name"
+                    label="分档情况">
+                </el-table-column>
+                <el-table-column
+                    prop="name"
+                    label="证券简称">
+                </el-table-column>
+                <el-table-column
+                    prop="name"
+                    label="证券代码">
+                </el-table-column>
+                <el-table-column
+                    prop="name"
+                    label="原始评级">
+                </el-table-column>
+                <el-table-column
+                    prop="name"
+                    label="原始占比">
+                </el-table-column>
+                <el-table-column
+                    prop="name"
+                    label="分档规模">
+                </el-table-column>
+                <el-table-column
+                    prop="name"
+                    label="预计到期日">
+                </el-table-column>
+                <el-table-column
+                    prop="name"
+                    label="加权期限">
+                </el-table-column>
+                <el-table-column
+                    label="询价区间">
+                </el-table-column>
+                <el-table-column
+                    label="计息方式">
+                </el-table-column>
+                <el-table-column
+                    label="付息频率">
+                </el-table-column>
+                <el-table-column
+                    label="还本方式">
+                </el-table-column>
+            </el-table>
+        </div>
+        <div class="grad-bottom">
+            <div class="note">备注: 原始权益人情况良好、底层资产分散、流动性支持。</div>
+            <div class="note-num">
+                <div>反馈总量占比<span>867.90%</span></div>
+                <div>反馈条线占比 <span>0.19%</span></div>
+            </div>
+        </div>
+        <div class="title-block">
+            <div class="title-name">产品特征</div>
+        </div>
+        <div class="features">
+            <span class="features-title">条线类型:</span>
+            <span class="features-type">底层分散</span>
+            <span class="features-type">非循环购买</span>
+            <span class="features-type">到期还本</span>
+        </div>
+        <div class="features-note">
+            <div class="features-note-title">备注:</div>
+            <div class="features-note-content">
+                <div>1）目标物业资产共涉及11处物业，其中6处商业、3处办公、2处工业，分别位于上海市嘉定区、普陀区和徐汇区；物业建筑面积共计7.59万平方米，评估价值12.51亿元，优先级对应抵质押率51.96%；2014至2017年上半年的平均合计储蓄率为94.23%，物业资产运营净收入对优先A和优先B的利息覆盖倍数分别为1.8倍和1.4倍.</div>
+                <div>1）目标物业资产共涉及11处物业，其中6处商业、3处办公、2处工业，分别位于上海市嘉定区、普陀区和徐汇区；物业建筑面积共计7.59万平方米，评估价值12.51亿元，优先级对应抵质押率51.96%；2014至2017年上半年的平均合计储蓄率为94.23%，物业资产运营净收入对优先A和优先B的利息覆盖倍数分别为1.8倍和1.4倍.</div>
+            </div>
+        </div>
+        <div class="features-download">
+            <img src="images/download.png" alt="">
+            下载发行材料
+        </div>
+        <div class="features-line">
+            <div class="features-line-info">
+                <img src="images/shape.png" alt="">
+                华谊兄弟2016年第一期信贷资产支持证券发行说明书     
+            </div>
+            <div class="features-line-info">
+                <img src="images/shape.png" alt="">
+                华谊兄弟2016年第一期信贷资产支持证券发行说明书     
+            </div>
+            <div class="features-line-info">
+                <img src="images/shape.png" alt="">
+                华谊兄弟2016年第一期信贷资产支持证券发行说明书     
+            </div>
+        </div>
+        <div class="title-block">
+            <div class="title-name">ABS-Broker</div>
+        </div>
+        <div class="">
+            <span>ABS-Broker:</span>
+            <span>石英杰</span>
+            <div class="features-people">
+                <img src="" alt="">
+            </div>
+        </div>
+        <div class="title-block">
+            <div class="title-name">卖方业务对接人</div>
+        </div>
+        <div class="features-somebody-info">
+            <div class="features-somebody">
+                <div class="somebody-info">
+                    <span>姓名:</span>
+                    <span>刘飞</span>
+                </div>
+                <div class="somebody-info">
+                    <span>公司:</span>
+                    <span>中国银行股份有限公司</span>
+                </div>
+            </div>
+            <div class="features-somebody">
+                <div class="somebody-info">
+                    <span>姓名:</span>
+                    <span>刘飞</span>
+                </div>
+                <div class="somebody-info">
+                    <span>公司:</span>
+                    <span>中国银行股份有限公司</span>
+                </div>
+            </div>
+            <div class="features-somebody">
+                <div class="somebody-info">
+                    <span>座机:</span>
+                    <span>021-48759274</span>
+                </div>
+                <div class="somebody-info">
+                    <span>总/分支:</span>
+                    <span>上海分行</span>
+                </div>
+            </div>
+            <div class="features-somebody">
+                <div class="somebody-info">
+                    <span>传真:</span>
+                    <span>021=48759288</span>
+                </div>
+                <div class="somebody-info">
+                    <span>部门:</span>
+                    <span>金融市场部</span>
+                </div>
+            </div>
+            <div class="features-somebody">
+                <div class="somebody-info">
+                    <span>手机号:</span>
+                    <span>148473492745</span>
+                </div>
+                <div class="somebody-info">
+                    <span>职位:</span>
+                    <span>主管</span>
+                </div>
+            </div>
+            <div class="features-somebody">
+                <div class="somebody-info">
+                    <span>邮箱:</span>
+                    <span>liufei@bankofchina.com.cn</span>
+                </div>
+            </div>
+        </div>
+        <div class="title-block">
+            <div class="title-name">询价对象</div>
+        </div>
+        <div class="features">
+            <span class="features-title">公司类型:</span>
+            <span class="features-type">大行、股份制</span>
+        </div>
+        <div class="features">
+            <span class="features-title">条线类型:</span>
+            <span class="features-type">自营线上</span>
+            <span class="features-type">自营同业</span>
+        </div>
+    </div>
+</body>
+    <!-- import Vue before Element -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+        var Main = {
+        data() {
+            return {
+                tableData: [{
+                    date: '王小虎',
+                    name: 'q',
+                    address: '上海市'
+                }, {
+                    date: '王小虎',
+                    name: 'q',
+                    address: '上海市'
+                }, {
+                    date: '王小虎',
+                    name: '',
+                    address: '上海市'
+                }, {
+                    date: '王小虎',
+                    name: 'q',
+                    address: '上海市'
+                }]
+            }
+        },
+        methods: {
+            onSubmit() {
+                console.log('submit!');
+                }
+            }
+        }
+        var Ctor = Vue.extend(Main)
+        new Ctor().$mount('#app')
+    </script>
+</html>
